@@ -1,11 +1,12 @@
-import Providers from "./providers";
-import ParallaxBackground from "../../components/ParallaxBackground/ParallaxBackground";
 import { Libre_Franklin, Mukta_Vaani, Hind } from "next/font/google";
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { ThemeProvider } from "@mui/material/styles";
+import mountainTheme from "@/theme";
 import type { Metadata } from "next";
 import "./globals.css";
 
 /**
- * TODO Trim down font weights that aren't being used in the site
+ * TODO Trim down font weights that aren't being used in the
  */
 const libreFranklin = Libre_Franklin({
   variable: "--font-heading",
@@ -37,10 +38,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${libreFranklin.variable} ${muktaVaani.variable} ${hind.variable}`}>
-        <Providers>
-          <ParallaxBackground />
-          {children}
-        </Providers>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={mountainTheme}>
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

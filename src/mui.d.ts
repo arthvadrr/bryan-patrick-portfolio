@@ -16,7 +16,12 @@ declare module '@mui/material/styles' {
 	 *===========================================================*/
 	interface Theme {
 		gradients: {
-			orange: string;
+			twilight?: string;
+			orange?: string;
+			farlight?: string;
+			farmediumlight?: string;
+			farmedium?: string;
+			fardark?: string;
 		};
 	}
 
@@ -25,7 +30,6 @@ declare module '@mui/material/styles' {
 	 *============================================================================*/
 	interface TypographyVariantsOptions {
 		bigheading?: CSSProperties;
-		gradients?: CSSProperties;
 	}
 
 	/*=============================
