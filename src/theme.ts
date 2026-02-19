@@ -4,7 +4,9 @@ import { createTheme } from '@mui/material/styles';
 
 const mountainTheme = createTheme({
 	typography: {
-		fontFamily: 'var(--font-roboto)',
+		bigheading: {
+			fontSize: 64,
+		},
 	},
 });
 
