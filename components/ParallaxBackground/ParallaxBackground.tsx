@@ -14,7 +14,6 @@ const parentSX: SxProps<Theme> = (theme) => ({
 });
 
 export default function ParallaxBackground() {
-  const mountainTheme = useTheme();
 
   return (
     <Box aria-hidden="true" sx={parentSX}>

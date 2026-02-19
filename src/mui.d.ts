@@ -16,12 +16,7 @@ declare module '@mui/material/styles' {
 	 *===========================================================*/
 	interface Theme {
 		gradients: {
-			twilight?: string;
-			orange?: string;
-			farlight?: string;
-			farmediumlight?: string;
-			farmedium?: string;
-			fardark?: string;
+			superDark: string;
 		};
 	}
 
