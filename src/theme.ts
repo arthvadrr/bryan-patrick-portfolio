@@ -8,6 +8,7 @@ const mountainTheme = createTheme({
 			fontSize: 64,
 		},
 	},
+	gradients: {},
 });
 
 export default mountainTheme;
