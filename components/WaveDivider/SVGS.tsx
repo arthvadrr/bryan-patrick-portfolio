@@ -1,27 +1,28 @@
-/*===========================================================
-  This makes normal "ocean waves" that look even and rounded.
+/*============================================================
+ * This makes normal "ocean waves" that look even and rounded.
+ *
+ * We generate SVGs for these.
+ *
+ * How we make these SVGs:
+ * Split the width into equal chunks.
+ * For each chunk, draw one rounded hill and one rounded dip.
+ * Repeat this to make a smooth wave.
+ *
+ * L = Line-to (below we use it to make pointy waves).
+ * Q = quadratic Bézier curve (for smooth waves. Fancy).
+ *
+ * Divider Wave Profiles
+ *
+ * smooth :  _      _      _      _
+ *         / \____/ \____/ \____/ \
+ *
+ * gentle :   _        _        _
+ *         _/ \______/ \______/ \_
+ *
+ * sharp  :   /\  /\  /\  /\  /\  /\
+ *         __/  \/  \/  \/  \/  \/  \__
+ *============================================================*/
 
-  We generate SVGs for these.
-
-  How we make these SVGs:
-  Split the width into equal chunks. 
-  For each chunk, draw one rounded hill and one rounded dip.
-  Repeat this to make a smooth wave.
-
-  L = Line-to (below we use it to make pointy waves).
-  Q = quadratic Bézier curve (for smooth waves. Fancy).
-
-  Divider Wave Profiles
-
-  smooth :  _      _      _      _
-          / \____/ \____/ \____/ \
-
-  gentle :   _        _        _
-          _/ \______/ \______/ \_
-
-  sharp  :   /\  /\  /\  /\  /\  /\
-          __/  \/  \/  \/  \/  \/  \__
-  ===========================================================*/
 
 export type DividerShape = "smooth" | "gentle" | "sharp";
 
