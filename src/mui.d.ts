@@ -16,7 +16,7 @@ declare module '@mui/material/styles' {
 	 *===========================================================*/
 	interface Theme {
 		gradients: {
-			orange: string;
+			superDark: string;
 		};
 	}
 
@@ -25,10 +25,10 @@ declare module '@mui/material/styles' {
 	 *============================================================================*/
 	interface TypographyVariantsOptions {
 		bigheading?: CSSProperties;
-		gradients?: CSSProperties;
+		gradients?: string;
 	}
 
-	/*=============================
+	/*==============================
 	 * This one is for createTheme()
 	 *=============================*/
 	interface ThemeOptions {
