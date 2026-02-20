@@ -1,8 +1,9 @@
 "use client";
 
-import { Button, Stack } from "@mui/material";
 import Link from "next/link";
+import { memo } from "react";
 import { usePathname } from "next/navigation";
+import { Button, Stack } from "@mui/material";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
@@ -12,7 +13,12 @@ const NAV_ITEMS = [
   { href: "/about", label: "About" },
 ];
 
-export default function MenuNav() {
+/*===================================================
+* "What is bravery, without a dash of wrecklessness?"
+* 
+* - Hawkeye Gough, Oolacile
+*====================================================*/
+export default memo(function MenuNav() {
   const pathname = usePathname();
 
   const isActiveRoute = (href: string): boolean => {
@@ -62,4 +68,4 @@ export default function MenuNav() {
       })}
     </Stack>
   );
-}
+})

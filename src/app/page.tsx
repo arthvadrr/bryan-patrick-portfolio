@@ -20,7 +20,7 @@ export default function Home() {
         alignItems: 'center',
         gap: '2rem'
       }}>
-        <Image src="/images/pixel-bryan_128x128.png" alt="Pixel Bryan" width="128" height="128" />
+        <Image src="/images/pixel-bryan_128x128.png" alt="Pixel Bryan" width="160" height="160" />
         <Typography variant="h1">
           Hello. My name is Bryan.
         </Typography>

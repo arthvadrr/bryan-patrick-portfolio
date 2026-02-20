@@ -3,7 +3,9 @@
 import { useTheme } from "@mui/material/styles";
 import MenuNav from "../MenuNav/MenuNav";
 import Box from "@mui/material/Box";
+import Stack from '@mui/material/Stack';
 import RetroBorder from "../RetroBorder/RetroBorder";
+
 
 type ScaffoldProps = {
   children: React.ReactNode;
@@ -67,8 +69,11 @@ export default function MainScaffold({
             showSideBlends
           />
           <MenuNav />
+          <Stack direction="row">
+            <Box>{children}</Box>
+            <Box><Sidebar /></Box>
+          </Stack>
           <Box sx={{ p: 4 }}>
-            {children}
           </Box>
         </Box>
       </Box>
