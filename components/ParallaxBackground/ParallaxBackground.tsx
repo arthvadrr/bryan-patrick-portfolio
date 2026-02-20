@@ -1,7 +1,7 @@
 'use client';
 
 import { Box } from "@mui/material";
-import { useTheme, type SxProps, type Theme } from "@mui/material/styles";
+import { type SxProps, type Theme } from "@mui/material/styles";
 
 const parentSX: SxProps<Theme> = (theme) => ({
   position: "absolute",
@@ -10,7 +10,6 @@ const parentSX: SxProps<Theme> = (theme) => ({
   top: 0,
   left: 0,
   zIndex: -1,
-  backgroundImage: theme.gradients.twilight,
 });
 
 export default function ParallaxBackground() {

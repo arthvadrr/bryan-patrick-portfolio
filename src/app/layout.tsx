@@ -1,24 +1,22 @@
 import Providers from "./providers";
 import ParallaxBackground from "../../components/ParallaxBackground/ParallaxBackground";
-import { Libre_Franklin, Mukta_Vaani, Hind } from "next/font/google";
+import { VT323, Space_Grotesk, Inter } from "next/font/google";
 import type { Metadata } from "next";
-import "./globals.css";
 
-/**
- * TODO Trim down font weights that aren't being used in the site
- */
-const libreFranklin = Libre_Franklin({
+// TODO Trim down font weights that aren't being used in the site
+const vt323 = VT323({
   variable: "--font-heading",
   subsets: ["latin"],
+  weight: ['400']
 });
 
-const muktaVaani = Mukta_Vaani({
+const spaceGrotesk = Space_Grotesk({
   variable: "--font-subheading",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const hind = Hind({
+const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -36,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${libreFranklin.variable} ${muktaVaani.variable} ${hind.variable}`}>
+      <body className={`${vt323.variable} ${spaceGrotesk.variable} ${inter.variable}`}>
         <Providers>
           <ParallaxBackground />
           {children}

@@ -1,6 +1,6 @@
 # Bryan Patrick Portfolio
 
-Hello. Welcome to my readme. It's like a Ted talk, but as an md.
+Hello. Welcome to my readme. It's like a Ted talk. But it's a readme.
 
 ## Todo
 
@@ -9,5 +9,9 @@ Hello. Welcome to my readme. It's like a Ted talk, but as an md.
 - [ ] Binary Clock
 - [ ] Articles Section (and rounting)
 - [ ] Snippets Section (and rounting)
-- [ ] Main Boxed in retro design
+- [x] Main Boxed in retro design
 - [ ] Add fonts
+
+## Misc
+
+P.S. My comment style is the bestest
