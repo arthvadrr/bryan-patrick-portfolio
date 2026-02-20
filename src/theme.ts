@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
 const COLORS = {
-	bg: '#111015',
+	bg: '#000000',
 	content: '#1b1824',
 	aqua: '#46cfc8',
 	orange: '#f28a3a',
@@ -97,7 +97,7 @@ const retroTheme = createTheme({
 		divider: COLORS.border,
 	},
 	gradients: {
-		superDark: `linear-gradient(to right top, ${COLORS.bg}, #121018, #13101a, #0f0c14, #0a080e)`,
+		superDark: `linear-gradient(to right top, ${COLORS.bg}, #06030c, #15121d, #06030c, ${COLORS.bg})`,
 	},
 });
 

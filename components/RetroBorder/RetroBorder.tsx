@@ -31,8 +31,6 @@ const GLOW_BLUR_RADIUS = "60px";
 const MAX_GLOW_OPACITY = 0.5;
 const MAX_GLOW_LEVEL = 4;
 const SIDE_STOP_PERCENT = 20;
-const GLOW_SEGMENT_PERCENT = 15;
-const GLOW_TRACK_START_PERCENT = 20;
 
 const POSITION_ORIENTATION: Record<RetroBorderPosition, BorderOrientation> = {
   top: "horizontal",
@@ -74,8 +72,9 @@ function getGlowSegmentPlacement(
   index: number,
   sizeValue: string
 ): CSSProperties {
-  const segmentStart = `${GLOW_TRACK_START_PERCENT + index * GLOW_SEGMENT_PERCENT}%`;
-  const segmentSize = `${GLOW_SEGMENT_PERCENT}%`;
+  const segmentPercent = 100 / GLOW_COLORS.length;
+  const segmentStart = `${index * segmentPercent}%`;
+  const segmentSize = `${segmentPercent}%`;
 
   if (orientation === "vertical") {
     return {
