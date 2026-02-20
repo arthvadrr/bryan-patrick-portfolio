@@ -3,7 +3,7 @@
 import { Box } from "@mui/material";
 import { type SxProps, type Theme } from "@mui/material/styles";
 
-const parentSX: SxProps<Theme> = (theme) => ({
+const parentSX: SxProps<Theme> = () => ({
   position: "absolute",
   height: "100vh",
   width: "100vw",

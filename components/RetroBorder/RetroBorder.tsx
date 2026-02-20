@@ -1,17 +1,26 @@
-import { Box } from "@mui/material"
+import { memo, useMemo } from "react";
+import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import type { CSSProperties } from "react";
 
+/*======================
+ * Types for our options
+ *
+ * "What is better - To be born good,
+ * or to overcome your evil nature
+ * through great effort?"
+ * 
+ * - Paarthurnax, Skyrim 
+ *======================*/
 type RetroBorderPosition = "top" | "bottom" | "left" | "right";
 type BorderOrientation = "horizontal" | "vertical";
 type GlowIntensity = 0 | 1 | 2 | 3 | 4;
 type GlowColor = "#ffb742" | "#f2247e" | "#ba34eb" | "#2cdec3";
 
-/*==================================================
+/*=======================================
  * "We are all born mad. Some remain so." 
- *
  * - Estragon, Waiting for Godot
- *==================================================*/
+ *=======================================*/
 interface RetroBorderProps {
   position: RetroBorderPosition;
   size?: string | number;
@@ -31,8 +40,6 @@ const GLOW_BLUR_RADIUS = "60px";
 const MAX_GLOW_OPACITY = 0.5;
 const MAX_GLOW_LEVEL = 4;
 const SIDE_STOP_PERCENT = 20;
-const GLOW_SEGMENT_PERCENT = 15;
-const GLOW_TRACK_START_PERCENT = 20;
 
 const POSITION_ORIENTATION: Record<RetroBorderPosition, BorderOrientation> = {
   top: "horizontal",
@@ -74,8 +81,9 @@ function getGlowSegmentPlacement(
   index: number,
   sizeValue: string
 ): CSSProperties {
-  const segmentStart = `${GLOW_TRACK_START_PERCENT + index * GLOW_SEGMENT_PERCENT}%`;
-  const segmentSize = `${GLOW_SEGMENT_PERCENT}%`;
+  const segmentPercent = 100 / GLOW_COLORS.length;
+  const segmentStart = `${index * segmentPercent}%`;
+  const segmentSize = `${segmentPercent}%`;
 
   if (orientation === "vertical") {
     return {
@@ -134,10 +142,12 @@ function createGlowShadow(hex: GlowColor, glowOpacity: number): string {
   return `0 0 ${GLOW_BLUR_RADIUS} ${GLOW_SPREAD_RADIUS} ${withOpacity(hex, glowOpacity)}`;
 }
 
-/*=====================================================
+/*=======================================================
  * A Box that acts like a border with some cool effects
- *=====================================================*/
-export default function RetroBorder({
+ * Memo is used because these really don't need to change
+ * on every render.
+ *=======================================================*/
+export default memo(function RetroBorder({
   position,
   size = '1px',
   length = '80%',
@@ -153,8 +163,11 @@ export default function RetroBorder({
   const calcLength = `calc(${calcExpression})`;
   const glowOpacity = (glowIntensity / MAX_GLOW_LEVEL) * MAX_GLOW_OPACITY;
   const orientation = POSITION_ORIENTATION[position];
+  const borderGradient = useMemo(
+    () => getBorderGradient(orientation, theme.palette.divider, showSideBlends),
+    [orientation, showSideBlends, theme.palette.divider]);
 
-  const positions: Record<RetroBorderPosition, CSSProperties> = {
+  const positions: Record<RetroBorderPosition, CSSProperties> = useMemo(() => ({
     top: {
       top: '-1px',
       left: offsetValue,
@@ -179,12 +192,12 @@ export default function RetroBorder({
       height: calcLength,
       width: sizeValue
     }
-  };
+  }), [sizeValue, calcLength, offsetValue]);
 
   return (
     <Box sx={{
       position: 'absolute',
-      background: getBorderGradient(orientation, theme.palette.divider, showSideBlends),
+      background: borderGradient,
       ...positions[position]
     }}>
       {GLOW_COLORS.map((hex, index) => (
@@ -199,4 +212,4 @@ export default function RetroBorder({
       ))}
     </Box>
   )
-}
+})
