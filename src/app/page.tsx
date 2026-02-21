@@ -26,13 +26,13 @@ export default function Home() {
         alignItems="center"
         sx={{
           alignItems: 'center',
-          gap: 2,
+          gap: 4,
         }}>
         <Image
-          src="/images/pixel-bryan_128x128.png"
+          src="/images/arth-animated.gif"
           alt="Pixel Bryan"
-          width="140"
-          height="140"
+          width="128"
+          height="220"
         />
         <Stack spacing={2}>
           <Typography variant="h1">
