@@ -8,7 +8,7 @@ interface GradientTextProps {
 
 export default function GradientText({
   children,
-  gradient = "linear-gradient(90deg, #fff8cc, #ff9d00, #ffc972,  #fff8cc)",
+  gradient = "linear-gradient(45deg, #fff8cc, #ffc05c, #ffb7d6, #f1ccff, #c6fff6, #fff8cc)",
 }: GradientTextProps) {
   return (
     <Box
