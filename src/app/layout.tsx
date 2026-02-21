@@ -1,13 +1,13 @@
 import Providers from "./providers";
 import ParallaxBackground from "../../components/ParallaxBackground/ParallaxBackground";
-import { VT323, Space_Grotesk, Inter } from "next/font/google";
+import { Black_Han_Sans, Space_Grotesk, Lexend } from "next/font/google";
 import type { Metadata } from "next";
 
 // TODO Trim down font weights that aren't being used in the site
-const vt323 = VT323({
+const blackHanSans = Black_Han_Sans({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ['400']
+  weight: "400",
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const inter = Inter({
+const lexend = Lexend({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${vt323.variable} ${spaceGrotesk.variable} ${inter.variable}`}>
+      <body className={`${blackHanSans.variable} ${spaceGrotesk.variable} ${lexend.variable}`}>
         <Providers>
           <ParallaxBackground />
           {children}

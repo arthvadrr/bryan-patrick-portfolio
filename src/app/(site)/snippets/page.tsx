@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import MainScaffold from "../../../../components/MainScaffold/MainScaffold";
+import MainScaffold from "../../../../components/MainScaffold";
 
 export default function Snippets() {
   return (

@@ -10,9 +10,9 @@ const COLORS = {
 };
 
 const FONTS = {
-	body: 'var(--font-body), Inter, sans-serif',
+	body: 'var(--font-body), Lexend, sans-serif',
 	subheading: 'var(--font-subheading), sans-serif',
-	heading: 'var(--font-heading), monospace',
+	heading: 'var(--font-heading), "Black Han Sans", sans-serif',
 };
 
 const retroTheme = createTheme({
