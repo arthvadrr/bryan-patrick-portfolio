@@ -8,6 +8,7 @@ import FeaturedArticles from "../../components/FeaturedArticles";
 import FeaturedBookmarks from "../../components/FeaturedBookmarks";
 import FeaturedSnippets from "../../components/FeaturedSnippets";
 import GradientText from "../../components/GradientText";
+import { useTheme } from "@mui/material";
 
 /*============================================================
  * "The place where you lock yourself in and lock all else out, 
@@ -17,6 +18,8 @@ import GradientText from "../../components/GradientText";
  * - Geralt of Rivia
  *============================================================*/
 export default function Home() {
+  const retroTheme = useTheme();
+
   return (
     <MainScaffold>
       <Stack
@@ -36,7 +39,9 @@ export default function Home() {
           height="220"
         />
         <Stack spacing={2}>
-          <Typography variant="h1">
+          <Typography variant="h1" sx={{
+            textShadow: `0 4px 0 ${retroTheme.palette.text.medium}`
+          }}>
             Hello! <br /> My name is <GradientText>Bryan</GradientText>.
           </Typography>
           <Typography>

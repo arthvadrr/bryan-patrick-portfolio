@@ -46,3 +46,12 @@ declare module '@mui/material/Typography' {
 		gradients: true;
 	}
 }
+
+/*=========================================
+ * I needed this one for the new textMedium
+ *=========================================*/
+declare module '@mui/material/styles' {
+	interface TypeText {
+		medium: string;
+	}
+}

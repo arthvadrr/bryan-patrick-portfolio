@@ -6,6 +6,7 @@ const COLORS = {
 	aqua: '#46cfc8',
 	orange: '#f28a3a',
 	textLight: '#fff8cc',
+	textMedium: '#84834c',
 	border: '#4d475c',
 };
 
@@ -15,8 +16,12 @@ const FONTS = {
 	heading: 'var(--font-heading), "Black Han Sans", sans-serif',
 };
 
+/*======================================
+ * Note to self that fontSize 14 is 16px
+ *======================================*/
 const retroTheme = createTheme({
 	typography: {
+		fontSize: 16,
 		fontFamily: FONTS.body,
 		h1: {
 			fontFamily: FONTS.heading,
@@ -93,6 +98,7 @@ const retroTheme = createTheme({
 		text: {
 			primary: COLORS.textLight,
 			secondary: COLORS.textLight,
+			medium: COLORS.textMedium,
 		},
 		divider: COLORS.border,
 	},
