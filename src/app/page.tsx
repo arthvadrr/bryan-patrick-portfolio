@@ -7,6 +7,7 @@ import Stack from "@mui/material/Stack";
 import FeaturedMemos from "../../components/FeaturedMemos";
 import FeaturedBoilerPlates from "../../components/FeaturedBoilerplates";
 import FeaturedSnippets from "../../components/FeaturedSnippets";
+import GradientText from "../../components/GradientText";
 
 /*============================================================
  * "The place where you lock yourself in and lock all else out, 
@@ -26,17 +27,17 @@ export default function Home() {
         alignItems="center"
         sx={{
           alignItems: 'center',
-          gap: 2,
+          gap: 4,
         }}>
         <Image
-          src="/images/pixel-bryan_128x128.png"
+          src="/images/arth-animated.gif"
           alt="Pixel Bryan"
-          width="140"
-          height="140"
+          width="128"
+          height="220"
         />
         <Stack spacing={2}>
           <Typography variant="h1">
-            Hello! <br /> My name is Bryan.
+            Hello! <br /> My name is <GradientText>Bryan</GradientText>.
           </Typography>
           <Typography>
             This is my personal site. Here there are code snippets, a collection of memos, boilerplates, and widgets for things I use all the time.
