@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import type { CSSProperties } from "react";
 
-/*======================
+/*====================================
  * Types for our options
  *
  * "What is better - To be born good,
@@ -11,7 +11,7 @@ import type { CSSProperties } from "react";
  * through great effort?"
  * 
  * - Paarthurnax, Skyrim 
- *======================*/
+ *===================================*/
 type RetroBorderPosition = "top" | "bottom" | "left" | "right";
 type BorderOrientation = "horizontal" | "vertical";
 type GlowIntensity = 0 | 1 | 2 | 3 | 4;

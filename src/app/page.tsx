@@ -1,9 +1,12 @@
 'use client'
 
-import MainScaffold from "../../components/MainScaffold/MainScaffold";
+import MainScaffold from "../../components/MainScaffold";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import FeaturedMemos from "../../components/FeaturedMemos";
+import FeaturedBoilerPlates from "../../components/FeaturedBoilerplates";
+import FeaturedSnippets from "../../components/FeaturedSnippets";
 
 /*============================================================
  * "The place where you lock yourself in and lock all else out, 
@@ -15,16 +18,34 @@ import Box from "@mui/material/Box";
 export default function Home() {
   return (
     <MainScaffold>
-      <Box sx={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '2rem'
-      }}>
-        <Image src="/images/pixel-bryan_128x128.png" alt="Pixel Bryan" width="160" height="160" />
-        <Typography variant="h1">
-          Hello. My name is Bryan.
-        </Typography>
-      </Box>
-    </MainScaffold>
+      <Stack
+        direction={{
+          sm: "column",
+          md: "row"
+        }}
+        alignItems="center"
+        sx={{
+          alignItems: 'center',
+          gap: 2,
+        }}>
+        <Image
+          src="/images/pixel-bryan_128x128.png"
+          alt="Pixel Bryan"
+          width="140"
+          height="140"
+        />
+        <Stack spacing={2}>
+          <Typography variant="h1">
+            Hello! <br /> My name is Bryan.
+          </Typography>
+          <Typography>
+            This is my personal site. Here there are code snippets, a collection of memos, boilerplates, and widgets for things I use all the time.
+          </Typography>
+        </Stack>
+      </Stack>
+      <FeaturedMemos />
+      <FeaturedBoilerPlates />
+      <FeaturedSnippets />
+    </MainScaffold >
   );
 }

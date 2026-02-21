@@ -1,7 +1,7 @@
 'use client';
 
 import { Box } from "@mui/material";
-import { type SxProps, type Theme } from "@mui/material/styles";
+import type { SxProps, Theme } from "@mui/material/styles";
 
 const parentSX: SxProps<Theme> = () => ({
   position: "absolute",
