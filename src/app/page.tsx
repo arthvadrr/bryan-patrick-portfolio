@@ -33,10 +33,11 @@ export default function Home() {
           gap: 4,
         }}>
         <Image
-          src="/images/arth-animated.gif"
+          src="/images/arth-animated_128x220.gif"
           alt="Pixel Bryan"
           width="128"
           height="220"
+          loading="eager"
         />
         <Stack spacing={2}>
           <Typography variant="h1" sx={{

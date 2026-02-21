@@ -49,7 +49,6 @@ export default function GradientText({
         color: "transparent",
         WebkitTextFillColor: "transparent",
         textShadow: 'none',
-        cursor: 'default',
 
         "& > *": {
           display: "contents",
