@@ -6,7 +6,7 @@ export default function FeaturedSnippets() {
       border: '1px solid #333',
       p: 8
     }}>
-      This will be featured Snippets
+      This will be featured Code Snippets
     </Box>
   )
 }

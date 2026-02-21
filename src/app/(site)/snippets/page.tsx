@@ -4,7 +4,7 @@ import MainScaffold from "../../../../components/MainScaffold";
 export default function Snippets() {
   return (
     <MainScaffold>
-      <Typography variant="h1">Snippets</Typography>
+      <Typography variant="h1">Code Snippets</Typography>
     </MainScaffold>
   );
 }

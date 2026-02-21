@@ -4,8 +4,8 @@ import MainScaffold from "../../components/MainScaffold";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Stack from "@mui/material/Stack";
-import FeaturedMemos from "../../components/FeaturedMemos";
-import FeaturedBoilerPlates from "../../components/FeaturedBoilerplates";
+import FeaturedArticles from "../../components/FeaturedArticles";
+import FeaturedBookmarks from "../../components/FeaturedBookmarks";
 import FeaturedSnippets from "../../components/FeaturedSnippets";
 import GradientText from "../../components/GradientText";
 
@@ -40,12 +40,12 @@ export default function Home() {
             Hello! <br /> My name is <GradientText>Bryan</GradientText>.
           </Typography>
           <Typography>
-            This is my personal site. Here there are code snippets, a collection of memos, boilerplates, and widgets for things I use all the time.
+            This is my personal site. Here there are code snippets, a collection of articles, bookmarks, and widgets for things I use all the time.
           </Typography>
         </Stack>
       </Stack>
-      <FeaturedMemos />
-      <FeaturedBoilerPlates />
+      <FeaturedArticles />
+      <FeaturedBookmarks />
       <FeaturedSnippets />
     </MainScaffold >
   );
