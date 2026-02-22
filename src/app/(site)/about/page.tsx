@@ -1,10 +1,10 @@
 import { Typography } from "@mui/material";
-import MainScaffold from "../../../../components/MainScaffold";
+import MainTemplate from "../../../../components/templates/MainTemplate";
 
 export default function About() {
   return (
-    <MainScaffold>
+    <MainTemplate>
       <Typography variant="h1">About</Typography>
-    </MainScaffold>
+    </MainTemplate>
   );
 }

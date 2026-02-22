@@ -3,55 +3,55 @@ import '@mui/material/styles';
 import '@mui/material/Typography';
 
 declare module '@mui/material/styles' {
-	/*=================================================
-	 * This one is for like theme.typography.bigheading
-	 *=================================================*/
-	interface TypographyVariants {
-		bigheading: CSSProperties;
-		gradients?: CSSProperties;
-	}
+  /*====================================================
+   * These ones are for like theme.typography.bigheading
+   *====================================================*/
+  interface TypographyVariants {
+    bigheading: CSSProperties;
+    gradients?: CSSProperties;
+  }
 
-	/*===========================================================
-	 * This one is for runtime, using like theme.gradients.orange
-	 *===========================================================*/
-	interface Theme {
-		gradients: {
-			superDark: string;
-		};
-	}
+  interface Theme {
+    gradients: {
+      superDark: string;
+      gradientText: string;
+      gradientLink: string;
+      borderGlow: string;
+    };
+  }
 
-	/*============================================================================
-	 * This one is for the function createTheme props to allow { bigheading: ... }
-	 *============================================================================*/
-	interface TypographyVariantsOptions {
-		bigheading?: CSSProperties;
-		gradients?: string;
-	}
+  /*============================================================================
+   * This one is for the function createTheme props to allow { bigheading: ... }
+   *============================================================================*/
+  interface TypographyVariantsOptions {
+    bigheading?: CSSProperties;
+    gradients?: string;
+  }
 
-	/*==============================
-	 * This one is for createTheme()
-	 *=============================*/
-	interface ThemeOptions {
-		gradients?: Partial<Theme['gradients']>;
-	}
+  /*==============================
+   * This one is for createTheme()
+   *=============================*/
+  interface ThemeOptions {
+    gradients?: Partial<Theme['gradients']>;
+  }
 }
 
 declare module '@mui/material/Typography' {
-	/*===================================
-	 * This one is for the variants in jsx
-	 * <Typography variant="bigheading"/>
-	 *====================================*/
-	interface TypographyPropsVariantOverrides {
-		bigheading: true;
-		gradients: true;
-	}
+  /*===================================
+   * This one is for the variants in jsx
+   * <Typography variant="bigheading"/>
+   *====================================*/
+  interface TypographyPropsVariantOverrides {
+    bigheading: true;
+    gradients: true;
+  }
 }
 
 /*=========================================
  * I needed this one for the new textMedium
  *=========================================*/
 declare module '@mui/material/styles' {
-	interface TypeText {
-		medium: string;
-	}
+  interface TypeText {
+    medium: string;
+  }
 }

@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"*.mdx": "mdx"
+	},
+	"mdx.server.enable": true
+}

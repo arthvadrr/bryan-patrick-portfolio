@@ -1,0 +1,14 @@
+import GradientLink from '../../../components/GradientLink';
+
+export const title = 'Understanding memo, useMemo, and useCallback Once and For All';
+
+```tsx
+const rows = useMemo(() => sortRows(rawRows), [rawRows]);
+const onSelect = useCallback((id: string) => setSelected(id), []);
+
+return <Table rows={rows} onSelect={onSelect} />;
+```
+
+If the calculation is cheap or the child is cheap, skip memoization first and measure later.
+
+Check out this <GradientLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display">MDN Article on display contents</GradientLink>.
