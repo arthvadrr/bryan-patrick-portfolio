@@ -1,11 +1,11 @@
 "use client";
 
 import { useTheme } from "@mui/material/styles";
-import MenuNav from "./MenuNav";
+import MenuNav from "../MenuNav";
 import Box from "@mui/material/Box";
 import Stack from '@mui/material/Stack';
-import RetroBorder from "./RetroBorder";
-import Sidebar from "./Sidebar"
+import RetroBorder from "../RetroBorder";
+import Sidebar from "../Sidebar"
 
 type ScaffoldProps = {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ type ScaffoldProps = {
   padding?: number;
 };
 
-export default function MainScaffold({
+export default function MainTemplate({
   children,
   minHeight = "100vh"
 }: ScaffoldProps) {
@@ -70,11 +70,6 @@ export default function MainScaffold({
           />
           <MenuNav />
           <Stack direction="row">
-            {
-              /*================
-               * 
-               *=================*/
-            }
             <Stack sx={{
               width: '100%',
               gap: 4,
@@ -84,8 +79,6 @@ export default function MainScaffold({
             </Stack>
             <Box sx={{ width: '100%', maxWidth: '432px' }}><Sidebar /></Box>
           </Stack>
-          <Box sx={{ p: 4 }}>
-          </Box>
         </Box>
       </Box>
     </main>
