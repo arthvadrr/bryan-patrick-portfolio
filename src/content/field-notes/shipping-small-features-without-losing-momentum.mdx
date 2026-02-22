@@ -1,0 +1,21 @@
+export const title = 'Shipping Small Features Without Losing Momentum';
+
+Shipping fast is mostly about scope control, not typing speed.
+
+Pick one thin vertical slice that can move from idea to production in under a day.
+
+## Practical Sequence
+
+1. Write one success signal before coding.
+2. Build the smallest path that proves the behavior.
+3. Release safely, then collect feedback.
+
+```ts /baseline/#v
+type SuccessSignal = {
+	event: 'bookmark_saved';
+	baseline: number;
+	targetLiftPercent: number;
+};
+```
+
+This avoids building large, speculative work before learning from real users.
