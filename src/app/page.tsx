@@ -4,7 +4,7 @@ import MainTemplate from "../../components/templates/MainTemplate";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Stack from "@mui/material/Stack";
-import FeaturedFieldNotes from "../../components/FeaturedFieldNotes";
+import FeaturedArticles from "../../components/FeaturedArticles";
 import FeaturedBookmarks from "../../components/FeaturedBookmarks";
 import FeaturedSnippets from "../../components/FeaturedSnippets";
 import { useTheme } from "@mui/material";
@@ -49,11 +49,11 @@ export default function Home() {
             Hello! <br /> My name is Bryan.
           </Typography>
           <Typography>
-            This is my personal site. Here there are code snippets, a collection of field notes, bookmarks, and widgets for things I use all the time.
+            This is my personal site. Here there are code snippets, a collection of articles, bookmarks, and widgets for things I use all the time.
           </Typography>
         </Stack>
       </Stack>
-      <FeaturedFieldNotes />
+      <FeaturedArticles />
       <FeaturedBookmarks />
       <FeaturedSnippets />
     </MainTemplate >

@@ -9,41 +9,41 @@ import type { ComponentType } from 'react';
  *=================================================*/
 
 type ISODateString = string;
-type FieldNoteMdxContent = { default: ComponentType; title?: string };
-type FieldNoteLoader = () => Promise<FieldNoteMdxContent>;
+type ArticleMdxContent = { default: ComponentType; title?: string };
+type ArticleLoader = () => Promise<ArticleMdxContent>;
 
-export type FieldNoteMeta = {
+export type ArticleMeta = {
 	slug: string;
 	tag: string;
 	date: ISODateString;
 	excerpt: string;
 };
 
-export type FieldNoteListItem = FieldNoteMeta & {
+export type ArticleListItem = ArticleMeta & {
 	title: string;
 };
 
-export type FieldNotePage = {
-	fieldNote: FieldNoteMeta;
+export type ArticlePage = {
+	article: ArticleMeta;
 	title: string;
 	Content: ComponentType;
 };
 
-type FieldNoteDefinition = FieldNoteMeta & {
-	load: FieldNoteLoader;
+type ArticleDefinition = ArticleMeta & {
+	load: ArticleLoader;
 };
 
 /*====================================
- * Our metadata, the index of field notes
+ * Our metadata, the index of articles
  *====================================*/
-export const FIELD_NOTES: FieldNoteDefinition[] = [
+export const ARTICLES: ArticleDefinition[] = [
 	{
 		slug: 'understanding-memo-usememo-and-usecallback-once-and-for-all',
 		tag: 'React',
 		date: '2026-02-21T17:59:28.202Z',
 		excerpt: '',
 		load: () =>
-			import('@/content/field-notes/understanding-memo-usememo-and-usecallback-once-and-for-all.mdx'),
+			import('@/content/articles/understanding-memo-usememo-and-usecallback-once-and-for-all.mdx'),
 	},
 	{
 		slug: 'shipping-small-features-without-losing-momentum',
@@ -52,7 +52,7 @@ export const FIELD_NOTES: FieldNoteDefinition[] = [
 		excerpt:
 			'A lightweight framework for planning, shipping, and validating tiny slices.',
 		load: () =>
-			import('@/content/field-notes/shipping-small-features-without-losing-momentum.mdx'),
+			import('@/content/articles/shipping-small-features-without-losing-momentum.mdx'),
 	},
 ];
 
@@ -63,37 +63,37 @@ function fallbackTitleFromSlug(slug: string): string {
 		.join(' ');
 }
 
-export async function getFieldNoteListItems(): Promise<FieldNoteListItem[]> {
+export async function getArticleListItems(): Promise<ArticleListItem[]> {
 	return Promise.all(
-		FIELD_NOTES.map(async ({ load, ...fieldNote }) => {
+		ARTICLES.map(async ({ load, ...article }) => {
 			const { title } = await load();
 
 			return {
-				...fieldNote,
-				title: title ?? fallbackTitleFromSlug(fieldNote.slug),
+				...article,
+				title: title ?? fallbackTitleFromSlug(article.slug),
 			};
 		}),
 	);
 }
 
-/*======================================================
- * Finds a field note by slug and loads its MDX component.
- *======================================================*/
-export async function getFieldNotePageBySlug(
+/*=================================================
+ * Finds an article by slug and loads its MDX component.
+ *=================================================*/
+export async function getArticlePageBySlug(
 	slug: string,
-): Promise<FieldNotePage | undefined> {
-	const fieldNoteDefinition = FIELD_NOTES.find(fieldNote => fieldNote.slug === slug);
+): Promise<ArticlePage | undefined> {
+	const articleDefinition = ARTICLES.find(article => article.slug === slug);
 
-	if (!fieldNoteDefinition) {
+	if (!articleDefinition) {
 		return undefined;
 	}
 
-	const { load, ...fieldNote } = fieldNoteDefinition;
+	const { load, ...article } = articleDefinition;
 	const { default: Content, title } = await load();
 
 	return {
-		fieldNote,
-		title: title ?? fallbackTitleFromSlug(fieldNote.slug),
+		article,
+		title: title ?? fallbackTitleFromSlug(article.slug),
 		Content,
 	};
 }

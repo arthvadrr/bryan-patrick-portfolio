@@ -19,7 +19,7 @@ type ScaffoldProps = {
  * 
  * - Violet Crawley, Dowager Countess of Grantham (Downton Abbey)
  *===============================*/
-export default function FieldNotesTemplate({
+export default function ArticlesTemplate({
   children,
   minHeight = "100vh"
 }: ScaffoldProps) {

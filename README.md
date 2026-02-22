@@ -7,7 +7,7 @@
 - [ ] Radio feature (Crosley)
 - [ ] Sidebar Pomo
 - [ ] Binary Clock
-- [x] Field Notes Section (and rounting)
+- [x] Articles Section (and rounting)
 - [x] Snippets Section (and rounting)
 - [x] Main Boxed in retro design
 - [x] Add fonts

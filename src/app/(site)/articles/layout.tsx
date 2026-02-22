@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
-import FieldNotesTemplate from "../../../../components/templates/FieldNotesTemplate";
+import ArticlesTemplate from "../../../../components/templates/ArticlesTemplate";
 
 export default function Page({ children }: { children: ReactNode }) {
   return (
-    <FieldNotesTemplate>
+    <ArticlesTemplate>
       {children}
-    </FieldNotesTemplate>
+    </ArticlesTemplate>
   )
 }
