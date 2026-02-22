@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef } from "react";
 import { Box } from "@mui/material";
 import type { ReactNode, PointerEvent } from "react";
@@ -10,23 +12,19 @@ interface GradientTextProps {
 
 /*====================================================
 * How could a site ever be cool without gradient text?
-* 
-* You'll notice on mouseover we do a cool little effect.
-* It moves the gradient around. It's meant to be cute.
-* 
-* We use a css var to do so instead of say, useState.
+*
+* We use a css var instead of say, useState.
 * 
 * This works better than trying to change the property
-* with state, so we avoid re-renders. We like to 
-* avoid those. Also it performs well and is inexpensive.
-*======================================================*/
+* with state, so we avoid re-renders. We like to avoid those.
+*============================================================*/
 export default function GradientText({
   children,
-  gradient = "linear-gradient(45deg, #fff8cc, #ffc05c, #ffb7d6, #f1ccff, #c6fff6, #fff8cc)",
+  gradient = "linear-gradient(45deg, #fff8cc, #ffc05c, #ffd8d8, #fff1cc, #c6fff6, #d2ffcc)",
 }: GradientTextProps) {
-  const $Box = useRef<HTMLDivElement>(null);
+  const $Box = useRef<HTMLSpanElement>(null);
 
-  function handlePointerMove(e: PointerEvent<HTMLDivElement>) {
+  function handlePointerMove(e: PointerEvent<HTMLSpanElement>) {
     const $BoxWithMouse = $Box.current;
     const rect = e.currentTarget.getBoundingClientRect();
     const posX = e.clientX - rect.left;
@@ -36,6 +34,7 @@ export default function GradientText({
 
   return (
     <Box
+      component="span"
       ref={$Box}
       onPointerMove={handlePointerMove}
       sx={{
