@@ -1,16 +1,16 @@
-> "A few weeks ago I awoke to the realization that I know not what to do next. I have no plan. I have no goal." - _Yennefer, The Witcher 3_
-
-Hello. Welcome to my readme. It's like a Ted talk. But it's a readme.
+> _"A few weeks ago I awoke to the realization that I know not what to do next. I have no plan. I have no goal."_
+>
+> _Yennefer of Vengerberg_ (_The Witcher 3_)
 
 ## Todo
 
 - [ ] Radio feature (Crosley)
 - [ ] Sidebar Pomo
 - [ ] Binary Clock
-- [ ] Articles Section (and rounting)
-- [ ] Snippets Section (and rounting)
+- [x] Field Notes Section (and rounting)
+- [x] Snippets Section (and rounting)
 - [x] Main Boxed in retro design
-- [ ] Add fonts
+- [x] Add fonts
 
 ## Misc
 
