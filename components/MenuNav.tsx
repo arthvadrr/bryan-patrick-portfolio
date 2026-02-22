@@ -7,7 +7,7 @@ import { Button, Stack } from "@mui/material";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
-  { href: "/articles", label: "Articles" },
+  { href: "/field-notes", label: "Field Notes" },
   { href: "/snippets", label: "Code Snippets" },
   { href: "/bookmarks", label: "Bookmarks" },
   { href: "/about", label: "About" },
