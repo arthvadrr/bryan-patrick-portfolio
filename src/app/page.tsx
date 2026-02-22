@@ -1,13 +1,12 @@
 'use client'
 
-import MainScaffold from "../../components/MainScaffold";
+import MainTemplate from "../../components/templates/MainTemplate";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Stack from "@mui/material/Stack";
-import FeaturedArticles from "../../components/FeaturedArticles";
+import FeaturedFieldNotes from "../../components/FeaturedFieldNotes";
 import FeaturedBookmarks from "../../components/FeaturedBookmarks";
 import FeaturedSnippets from "../../components/FeaturedSnippets";
-import GradientText from "../../components/GradientText";
 import { useTheme } from "@mui/material";
 
 /*============================================================
@@ -21,7 +20,7 @@ export default function Home() {
   const retroTheme = useTheme();
 
   return (
-    <MainScaffold>
+    <MainTemplate>
       <Stack
         direction={{
           sm: "column",
@@ -31,6 +30,10 @@ export default function Home() {
         sx={{
           alignItems: 'center',
           gap: 4,
+
+          '& img': {
+            filter: 'drop-shadow(0 15px 4px #000) saturate(0.75)'
+          }
         }}>
         <Image
           src="/images/arth-animated_128x220.gif"
@@ -39,20 +42,20 @@ export default function Home() {
           height="220"
           loading="eager"
         />
-        <Stack spacing={2}>
+        <Stack spacing={2} sx={{ py: 4 }}>
           <Typography variant="h1" sx={{
             textShadow: `0 4px 0 ${retroTheme.palette.text.medium}`
           }}>
-            Hello! <br /> My name is <GradientText>Bryan</GradientText>.
+            Hello! <br /> My name is Bryan.
           </Typography>
           <Typography>
-            This is my personal site. Here there are code snippets, a collection of articles, bookmarks, and widgets for things I use all the time.
+            This is my personal site. Here there are code snippets, a collection of field notes, bookmarks, and widgets for things I use all the time.
           </Typography>
         </Stack>
       </Stack>
-      <FeaturedArticles />
+      <FeaturedFieldNotes />
       <FeaturedBookmarks />
       <FeaturedSnippets />
-    </MainScaffold >
+    </MainTemplate >
   );
 }
