@@ -181,7 +181,7 @@ export default memo(function RetroBorder({
       height: sizeValue
     },
     left: {
-      left: '-1px',
+      left: '0px',
       top: offsetValue,
       height: calcLength,
       width: sizeValue
@@ -207,6 +207,7 @@ export default memo(function RetroBorder({
             ...getGlowSegmentPlacement(orientation, index, sizeValue),
             position: "absolute",
             boxShadow: createGlowShadow(hex, glowOpacity),
+            zIndex: '4000'
           }}
         />
       ))}

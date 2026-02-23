@@ -1,20 +1,68 @@
-import Link from "next/link";
-import { Stack, Typography } from "@mui/material";
-import { getArticleListItems } from "./index";
+'use client'
 
-export default async function ArticlesPage() {
-  const articles = await getArticleListItems();
+import { ARTICLES } from "@/app/(site)/articles";
+import { formatDate } from "../../../../components/util";
+import GradientLink from "../../../../components/GradientLink";
+import {
+  Box,
+  List,
+  ListItem,
+  Card,
+  Typography,
+  Chip,
+  Stack,
+  useTheme
+} from "@mui/material";
+
+export default function ArticlesPage() {
+  const retroTheme = useTheme();
 
   return (
-    <Stack spacing={3}>
-      <Typography variant="h1">Articles</Typography>
-      <Stack component="ul" spacing={1.5} sx={{ listStyle: "none", m: 0, p: 0 }}>
-        {articles.map((article) => (
-          <li key={article.slug}>
-            <Link href={`/articles/${article.slug}`}>{article.title}</Link>
-          </li>
-        ))}
-      </Stack>
-    </Stack>
-  );
+    <Box sx={{
+      position: 'relative',
+    }}>
+      <Typography variant="h1" sx={{ my: 1 }}>
+        Featured Articles
+      </Typography>
+      <List sx={{ p: 0 }}>
+        {ARTICLES.map(article => {
+          if (article.isFeatured) {
+            return (
+              <ListItem key={`article-${article.slug}`}>
+                <Card sx={{ p: 2, width: '100%' }}>
+                  <GradientLink href={`/articles/${article.slug}`}>
+                    <Typography variant='h3'>{article.title}</Typography>
+                  </GradientLink>
+                  <Stack direction="row" sx={{ alignItems: 'center', gap: 1 }}>
+                    <Typography component='span' sx={{ fontSize: 16 }}>
+                      {formatDate(article.date)}
+                    </Typography>
+                    <Chip
+                      component="a"
+                      href="/articles?tag=react"
+                      label="React"
+                      variant="outlined"
+                      rel="tag"
+                      sx={{
+                        my: 2,
+                        cursor: 'pointer',
+
+                        '&:hover': {
+                          backgroundImage: retroTheme.gradients.gradientLink
+                        }
+                      }}
+                    />
+                  </Stack>
+                  <Typography>
+                    {article.excerpt}
+                  </Typography>
+                  <GradientLink href={`/articles/${article.slug}`} sx={{ pt: 4 }}>Read more</GradientLink>
+                </Card>
+              </ListItem>
+            )
+          }
+        })}
+      </List>
+    </Box >
+  )
 }

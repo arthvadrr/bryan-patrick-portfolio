@@ -36,7 +36,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${blackHanSans.variable} ${spaceGrotesk.variable} ${lexend.variable}`}>
         <Providers>
-          <ParallaxBackground />
           {children}
         </Providers>
       </body>

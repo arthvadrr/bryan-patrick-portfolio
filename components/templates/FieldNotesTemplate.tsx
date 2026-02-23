@@ -23,7 +23,7 @@ export default function ArticlesTemplate({
   children,
   minHeight = "100vh"
 }: ScaffoldProps) {
-  const retroTheme = useTheme();
+  const retroTheme = theme();
 
   return (
     <main>
@@ -49,8 +49,8 @@ export default function ArticlesTemplate({
           id="main-content"
           sx={{
             position: "relative",
-            width: '1120px',
-            minHeight: '900px',
+            width: '1200px',
+            minHeight: '400px',
             backgroundColor: "background.paper",
             border: 1,
             borderColor: "divider",

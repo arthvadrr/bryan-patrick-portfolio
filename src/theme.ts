@@ -21,20 +21,22 @@ const FONTS = {
  *======================================*/
 const retroTheme = createTheme({
   typography: {
-    fontSize: 18,
+    fontSize: 14,
     fontFamily: FONTS.body,
     h1: {
       fontFamily: FONTS.heading,
       fontWeight: 400,
-      fontSize: '3.2rem',
+      fontSize: 40,
     },
     h2: {
-      fontFamily: FONTS.heading,
-      fontWeight: 400,
+      fontFamily: FONTS.body,
+      fontWeight: 700,
+      fontSize: 24,
     },
     h3: {
-      fontFamily: FONTS.heading,
-      fontWeight: 400,
+      fontFamily: FONTS.subheading,
+      fontWeight: 700,
+      fontSize: 20,
     },
     h4: {
       fontFamily: FONTS.subheading,
@@ -103,7 +105,7 @@ const retroTheme = createTheme({
     divider: COLORS.border,
   },
   gradients: {
-    superDark: `linear-gradient(to right top, ${COLORS.bg}, #06030c, #15121d, #06030c, ${COLORS.bg})`,
+    superDark: `linear-gradient(to right top, #000000, #06030c, #241e38, #06030c, #000000)`,
     gradientText:
       'linear-gradient(45deg, #fff8cc, #ffc05c, #ffd8d8, #fff1cc, #c6fff6, #d2ffcc)',
     gradientLink: 'linear-gradient(90deg, #ffffff, #ffb6e9, #e3c1ff, #ffffff)',
