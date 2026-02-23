@@ -59,7 +59,8 @@ export default memo(function MenuNav() {
               borderStyle: 'solid',
               borderRadius: 0,
               borderRightWidth: '1px',
-              p: 2,
+              p: 1.2,
+              textTransform: 'unset'
             }}
           >
             {item.label}

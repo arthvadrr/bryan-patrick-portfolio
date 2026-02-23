@@ -1,14 +1,16 @@
 'use client';
 
 import { useRef } from "react";
-import { Box, Link } from "@mui/material";
-import { useTheme } from "@mui/material";
+import { Box, Link, SxProps, useTheme } from "@mui/material";
+import { Theme } from "@emotion/react";
 import type { ReactNode, PointerEvent } from "react";
 
 interface GradientLinkProps {
   children: ReactNode;
   gradient?: string;
   href: string;
+  underline?: boolean;
+  sx?: SxProps<Theme>
 }
 
 /*=====================================================
@@ -17,15 +19,15 @@ interface GradientLinkProps {
 export default function GradientLink({
   children,
   gradient,
-  href
+  href,
+  sx = {}
 }: GradientLinkProps) {
   const retroTheme = useTheme();
+  const $Box = useRef<HTMLSpanElement>(null);
 
   if (!gradient) {
     gradient = retroTheme.gradients.gradientLink;
   }
-
-  const $Box = useRef<HTMLSpanElement>(null);
 
   function handlePointerMove(e: PointerEvent<HTMLSpanElement>) {
     const $BoxWithMouse = $Box.current;
@@ -34,52 +36,6 @@ export default function GradientLink({
 
     $BoxWithMouse!.style.setProperty("--mouseX", `${posX}px`);
   }
-
-  /*===============================================================
-   * If you don't know what display: contents does on line 102,
-   * it's simple. Imagine this: 
-   * 
-   * Grandparent = table
-   * Parent = cardboard box
-   * Child = cat
-   * 
-   * <Table>
-   *  <CardboardBox>
-   *    <Cat>
-   *  </CardboardBox>
-   * </Table>
-   * 
-   * The cat is in the cardboard box. He likes the box.
-   * 
-   *     /\_/\\
-   *    ( o.o )
-   *     > ^ <
-   *   +-------+
-   *   |  BOX  |
-   *   +-------+
-   =================
-   *    TABLE
-   * 
-   * display: contents on the box means:
-   * 
-   * The box disappears, but the cat stays.
-   * Now the cat "acts" like it is directly on the table.
-   * The box isn't really gone, just from layout.
-   * 
-   * The page layout behaves like the box is gone:
-   * <Table>
-   *   <Cat>
-   * </Table>
-   * 
-   * The cat is slightly annoyed. He knocks your glass off the table
-   * 
-   *      /\_/\\
-   *  /  ( o.o )    |  |
-   * |    > ^ <.    |__|
-   * |\  |    |===88|__|
-   =================
-   *    TABLE
-   *================================================================*/
   return (
     <Box
       component="span"
@@ -94,38 +50,23 @@ export default function GradientLink({
         backgroundPositionX: "var(--mouseX)",
         backgroundClip: "text",
         WebkitBackgroundClip: "text",
-        color: "transparent",
         WebkitTextFillColor: "transparent",
-        textShadow: "none",
+        color: "#fff",
+        ...sx,
 
-        "& > *": {
-          display: "contents",
-        },
-
-        '&:hover': {
-          filter: 'drop-shadow(3px 1px 0 #000)'
+        '&:focus': {
+          backgroundClip: 'unset',
+          backgroundImage: 'unset',
         }
       }}
     >
       <Link href={href} sx={{
-        '&::after': {
-          content: '""',
-          display: 'block',
-          position: 'absolute',
-          bottom: '-2px',
-          width: '100%',
-          height: '2px',
-          backgroundPositionX: "var(--mouseX)",
-          backgroundRepeat: "repeat",
-          backgroundImage: gradient,
-          transition: 'height 120ms, bottom 120ms'
-        },
+        textDecoration: 'none',
 
-        '&:hover::after': {
-          height: '4px',
-          bottom: '-4px',
-          filter: 'drop-shadow(0 0 2px #fff)'
-        }
+        '&:hover *, &:hover': {
+          textDecoration: 'underline',
+          textDecorationColor: '#fff',
+        },
       }}>
         {children}
       </Link>

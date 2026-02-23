@@ -32,7 +32,7 @@ export default function Home() {
           gap: 4,
 
           '& img': {
-            filter: 'drop-shadow(0 15px 4px #000) saturate(0.75)'
+            filter: 'drop-shadow(0 15px 4px #000) saturate(0.6)'
           }
         }}>
         <Image
@@ -42,9 +42,9 @@ export default function Home() {
           height="220"
           loading="eager"
         />
-        <Stack spacing={2} sx={{ py: 4 }}>
+        <Stack spacing={2} sx={{ py: 6 }}>
           <Typography variant="h1" sx={{
-            textShadow: `0 4px 0 ${retroTheme.palette.text.medium}`
+            textShadow: `0 3px 0 ${retroTheme.palette.text.medium}`
           }}>
             Hello! <br /> My name is Bryan.
           </Typography>
