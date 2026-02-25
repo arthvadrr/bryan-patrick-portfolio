@@ -2,19 +2,8 @@
 >
 > _Yennefer of Vengerberg_ (_The Witcher 3_)
 
-## Todo
-
-- [ ] Radio feature (Crosley)
-- [ ] Sidebar Pomo
-- [ ] Binary Clock
-- [x] Articles Section (and rounting)
-- [x] Snippets Section (and rounting)
-- [x] Main Boxed in retro design
-- [x] Add fonts
 
 ## Misc
-
-P.S. My comment style is the bestest
 
 ```ts
    * If you don't know what display: contents does it's simple. Imagine this:
