@@ -28,11 +28,14 @@ export default function ArticlesPage() {
         {ARTICLES.map(article => {
           if (article.isFeatured) {
             return (
-              <ListItem key={`article-${article.slug}`}>
-                <Card sx={{ p: 2, width: '100%' }}>
+              <ListItem key={`article-${article.slug}`} sx={{ px: 0 }}>
+                <Card sx={{ p: 4, width: '100%' }}>
                   <GradientLink href={`/articles/${article.slug}`}>
                     <Typography variant='h3'>{article.title}</Typography>
                   </GradientLink>
+                  <Typography>
+                    {article.excerpt}
+                  </Typography>
                   <Stack direction="row" sx={{ alignItems: 'center', gap: 1 }}>
                     <Typography component='span' sx={{ fontSize: 16 }}>
                       {formatDate(article.date)}
@@ -53,9 +56,6 @@ export default function ArticlesPage() {
                       }}
                     />
                   </Stack>
-                  <Typography>
-                    {article.excerpt}
-                  </Typography>
                   <GradientLink href={`/articles/${article.slug}`} sx={{ pt: 4 }}>Read more</GradientLink>
                 </Card>
               </ListItem>
