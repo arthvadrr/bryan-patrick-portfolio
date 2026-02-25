@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import MainTemplate from "../../components/templates/MainTemplate";
-import Typography from "@mui/material/Typography";
-import Image from "next/image";
-import Stack from "@mui/material/Stack";
-import FeaturedArticles from "../../components/FeaturedArticles";
-import FeaturedBookmarks from "../../components/FeaturedBookmarks";
-import FeaturedSnippets from "../../components/FeaturedSnippets";
-import { Box } from "@mui/material";
-import type { SxProps, Theme } from "@mui/material/styles";
+import MainTemplate from '../../components/templates/MainTemplate';
+import Typography from '@mui/material/Typography';
+import Image from 'next/image';
+import Stack from '@mui/material/Stack';
+import FeaturedArticles from '../../components/FeaturedArticles';
+import FeaturedBookmarks from '../../components/FeaturedBookmarks';
+import FeaturedSnippets from '../../components/FeaturedSnippets';
+import { Box } from '@mui/material';
+import type { SxProps, Theme } from '@mui/material/styles';
 
 const getImageEffectStyles: SxProps<Theme> = (theme: Theme) => ({
   position: 'relative',
@@ -74,8 +74,10 @@ const getImageEffectStyles: SxProps<Theme> = (theme: Theme) => ({
   },
 
   '&:hover::before': {
-    background: 'conic-gradient(from var(--gradient-angle), #ffb742, #f2247e, #ba34eb, #2cdec3, #ffb742)',
-    WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
+    background:
+      'conic-gradient(from var(--gradient-angle), #ffb742, #f2247e, #ba34eb, #2cdec3, #ffb742)',
+    WebkitMask:
+      'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
     maskComposite: 'subtract',
   },
 
@@ -86,7 +88,8 @@ const getImageEffectStyles: SxProps<Theme> = (theme: Theme) => ({
     left: '-20px',
     opacity: 0.85,
     filter: 'blur(34px)',
-    background: 'conic-gradient(from var(--gradient-angle), rgba(255, 183, 66, 0.38), rgba(242, 36, 126, 0.38), rgba(186, 52, 235, 0.38), rgba(44, 222, 195, 0.38), rgba(255, 183, 66, 0.38))',
+    background:
+      'conic-gradient(from var(--gradient-angle), rgba(255, 183, 66, 0.38), rgba(242, 36, 126, 0.38), rgba(186, 52, 235, 0.38), rgba(44, 222, 195, 0.38), rgba(255, 183, 66, 0.38))',
   },
 
   '&:hover img': {
@@ -101,14 +104,14 @@ const getImageEffectStyles: SxProps<Theme> = (theme: Theme) => ({
     '--gradient-angle': '360deg',
     animation: 'gradient-spin 3s linear infinite',
     animationDelay: '400ms',
-  }
+  },
 });
 
 /*============================================================
- * "The place where you lock yourself in and lock all else out, 
- * that’s not your home. Your home is sometimes a place you 
+ * "The place where you lock yourself in and lock all else out,
+ * that’s not your home. Your home is sometimes a place you
  * travel long and far to find."
- * 
+ *
  * - Geralt of Rivia
  *============================================================*/
 export default function Home() {
@@ -116,37 +119,39 @@ export default function Home() {
     <MainTemplate>
       <Stack
         direction={{
-          sm: "column",
-          md: "row"
+          sm: 'column',
+          md: 'row',
         }}
-        alignItems="center"
+        alignItems='center'
         sx={{
           alignItems: 'center',
           gap: 2,
-        }}>
+        }}
+      >
         {
           <Box sx={getImageEffectStyles}>
             <Image
-              src="/images/bryan-shades_200x200.png"
-              alt="A photo of Bryan"
-              width="200"
-              height="200"
-              loading="eager"
+              src='/images/bryan-shades_200x200.png'
+              alt='A photo of Bryan'
+              width='200'
+              height='200'
+              loading='eager'
             />
           </Box>
         }
         <Stack spacing={2} sx={{ py: 6, zIndex: 2 }}>
-          <Typography variant="h1">
+          <Typography variant='h1'>
             Hello! <br /> My name is Bryan.
           </Typography>
           <Typography>
-            This is my personal site. Here there are code snippets, a collection of articles, bookmarks, and widgets for things I use all the time.
+            This is my personal site. Here there are code snippets, a collection
+            of articles, bookmarks, and widgets for things I use all the time.
           </Typography>
         </Stack>
       </Stack>
       <FeaturedArticles />
       <FeaturedBookmarks />
       <FeaturedSnippets />
-    </MainTemplate >
+    </MainTemplate>
   );
 }

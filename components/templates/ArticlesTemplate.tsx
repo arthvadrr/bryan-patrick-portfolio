@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useTheme } from "@mui/material/styles";
-import MenuNav from "../MenuNav";
-import Box from "@mui/material/Box";
+import { useTheme } from '@mui/material/styles';
+import MenuNav from '../MenuNav';
+import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import RetroBorder from "../RetroBorder";
+import RetroBorder from '../RetroBorder';
 
 type ScaffoldProps = {
   children: React.ReactNode;
@@ -14,61 +14,59 @@ type ScaffoldProps = {
 };
 
 /*===============================
- * "There's nothing simpler than avoiding people you don't like. 
+ * "There's nothing simpler than avoiding people you don't like.
  * Avoiding one's friends, that's the real test."
- * 
+ *
  * - Violet Crawley, Dowager Countess of Grantham (Downton Abbey)
  *===============================*/
 export default function ArticlesTemplate({
   children,
-  minHeight = "100vh"
+  minHeight = '100vh',
 }: ScaffoldProps) {
   const retroTheme = useTheme();
 
   return (
     <main>
       <Box
-        component="main"
-        id="main-wrapper"
+        component='main'
+        id='main-wrapper'
         sx={{
-          display: "grid",
-          justifyContent: "center",
-          alignItems: "center",
+          display: 'grid',
+          justifyContent: 'center',
+          alignItems: 'center',
           minHeight,
-          width: "100%",
+          width: '100%',
           background: retroTheme.gradients.superDark,
         }}
       >
-        <RetroBorder
-          position="top"
-          size="2px"
-          length='100%'
-          offset={'0%'}
-        />
+        <RetroBorder position='top' size='2px' length='100%' offset={'0%'} />
         <Box
-          id="main-content"
+          id='main-content'
           sx={{
-            position: "relative",
+            position: 'relative',
             width: '1120px',
             minHeight: '900px',
-            backgroundColor: "background.paper",
+            backgroundColor: 'background.paper',
             border: 1,
-            borderColor: "divider",
+            borderColor: 'divider',
             borderRadius: 2,
           }}
         >
           <RetroBorder
-            position="top"
-            size="1px"
+            position='top'
+            size='1px'
             glowIntensity={2}
-            length="80%"
-            offset="20%"
+            length='80%'
+            offset='20%'
             showSideBlends
           />
           <MenuNav />
-          <Stack direction="column" sx={{
-            padding: 8
-          }}>
+          <Stack
+            direction='column'
+            sx={{
+              padding: 8,
+            }}
+          >
             {children}
           </Stack>
         </Box>

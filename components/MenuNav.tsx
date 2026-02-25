@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { memo } from "react";
-import { usePathname } from "next/navigation";
-import { Button, Stack } from "@mui/material";
+import Link from 'next/link';
+import { memo } from 'react';
+import { usePathname } from 'next/navigation';
+import { Button, Stack } from '@mui/material';
 
 const NAV_ITEMS = [
-  { href: "/", label: "Home" },
-  { href: "/articles", label: "Articles" },
-  { href: "/snippets", label: "Code Snippets" },
-  { href: "/bookmarks", label: "Bookmarks" },
-  { href: "/about", label: "About" },
+  { href: '/', label: 'Home' },
+  { href: '/articles', label: 'Articles' },
+  { href: '/snippets', label: 'Code Snippets' },
+  { href: '/bookmarks', label: 'Bookmarks' },
+  { href: '/about', label: 'About' },
 ];
 
 /*===================================================
-* "What is bravery, without a dash of wrecklessness?"
-* 
-* - Hawkeye Gough, Oolacile
-*====================================================*/
+ * "What is bravery, without a dash of wrecklessness?"
+ *
+ * - Hawkeye Gough, Oolacile
+ *====================================================*/
 export default memo(function MenuNav() {
   const pathname = usePathname();
 
@@ -26,8 +26,8 @@ export default memo(function MenuNav() {
       return false;
     }
 
-    if (href === "/") {
-      return pathname === "/";
+    if (href === '/') {
+      return pathname === '/';
     }
 
     return pathname === href || pathname.startsWith(`${href}/`);
@@ -35,12 +35,13 @@ export default memo(function MenuNav() {
 
   return (
     <Stack
-      direction="row"
+      direction='row'
       spacing={0}
       sx={{
-        flexWrap: "no-wrap",
+        flexWrap: 'no-wrap',
         width: '100%',
-      }}>
+      }}
+    >
       {NAV_ITEMS.map((item) => {
         const isActive = isActiveRoute(item.href);
 
@@ -49,10 +50,10 @@ export default memo(function MenuNav() {
             key={item.href}
             component={Link}
             href={item.href}
-            aria-current={isActive ? "page" : undefined}
-            color={isActive ? "primary" : "inherit"}
+            aria-current={isActive ? 'page' : undefined}
+            color={isActive ? 'primary' : 'inherit'}
             sx={{
-              width: "100%",
+              width: '100%',
               cursor: 'pointer',
               borderColor: 'divider',
               borderBottomWidth: '1px',
@@ -60,7 +61,7 @@ export default memo(function MenuNav() {
               borderRadius: 0,
               borderRightWidth: '1px',
               p: 1.2,
-              textTransform: 'unset'
+              textTransform: 'unset',
             }}
           >
             {item.label}
@@ -69,4 +70,4 @@ export default memo(function MenuNav() {
       })}
     </Stack>
   );
-})
+});

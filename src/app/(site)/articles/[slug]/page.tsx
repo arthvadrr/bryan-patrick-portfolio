@@ -1,6 +1,6 @@
-import { ARTICLES, getArticlePageBySlug } from "../index";
-import { notFound } from "next/navigation";
-import ArticleClient from "./ArticleClient";
+import { ARTICLES, getArticlePageBySlug } from '../index';
+import { notFound } from 'next/navigation';
+import ArticleClient from './ArticleClient';
 
 type PageProps = {
   params: Promise<{ slug: string }>;

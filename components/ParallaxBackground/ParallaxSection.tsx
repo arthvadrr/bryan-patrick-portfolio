@@ -1,10 +1,10 @@
-import WaveDivider from "../WaveDivider/WaveDivider";
-import { Box } from "@mui/material";
-import type { DividerProps } from "../WaveDivider/WaveDivider"
+import WaveDivider from '../WaveDivider/WaveDivider';
+import { Box } from '@mui/material';
+import type { DividerProps } from '../WaveDivider/WaveDivider';
 
 interface ParralaxSectionProps extends DividerProps {
-  background: string
-  color: string
+  background: string;
+  color: string;
 }
 
 export default function ParallaxSection({
@@ -16,16 +16,19 @@ export default function ParallaxSection({
   count,
   shape,
   slope,
-  randomness
+  randomness,
 }: ParralaxSectionProps) {
   return (
-    <Box component="section" sx={{
-      position: "absolute",
-      bottom: 0,
-      width: "100%",
-      height,
-      background,
-    }}>
+    <Box
+      component='section'
+      sx={{
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        height,
+        background,
+      }}
+    >
       <WaveDivider
         color={color}
         waveHeight={waveHeight}
@@ -35,10 +38,10 @@ export default function ParallaxSection({
         slope={slope}
         randomness={randomness}
         sx={{
-          position: "absolute",
-          bottom: "100%"
+          position: 'absolute',
+          bottom: '100%',
         }}
       />
     </Box>
-  )
+  );
 }
