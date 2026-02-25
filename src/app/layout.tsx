@@ -1,7 +1,7 @@
 import Providers from "./providers";
-import ParallaxBackground from "../../components/ParallaxBackground/ParallaxBackground";
 import { Black_Han_Sans, Space_Grotesk, Lexend } from "next/font/google";
 import type { Metadata } from "next";
+import "./globals.css";
 
 // TODO Trim down font weights that aren't being used in the site
 const blackHanSans = Black_Han_Sans({

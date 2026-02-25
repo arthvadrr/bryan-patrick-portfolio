@@ -26,7 +26,7 @@ const retroTheme = createTheme({
     h1: {
       fontFamily: FONTS.heading,
       fontWeight: 400,
-      fontSize: 40,
+      fontSize: 38,
     },
     h2: {
       fontFamily: FONTS.body,
@@ -105,7 +105,7 @@ const retroTheme = createTheme({
     divider: COLORS.border,
   },
   gradients: {
-    superDark: `linear-gradient(to right top, #000000, #06030c, #241e38, #06030c, #000000)`,
+    superDark: `linear-gradient(to right top, #000000, #06030c, #1d1928, #06030c, #000000)`,
     gradientText:
       'linear-gradient(45deg, #fff8cc, #ffc05c, #ffd8d8, #fff1cc, #c6fff6, #d2ffcc)',
     gradientLink: 'linear-gradient(90deg, #ffffff, #ffb6e9, #e3c1ff, #ffffff)',
