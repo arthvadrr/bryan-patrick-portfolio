@@ -106,11 +106,9 @@ const retroTheme = createTheme({
   },
   gradients: {
     superDark: `linear-gradient(to right top, #000000, #06030c, #1d1928, #06030c, #000000)`,
-    gradientText:
-      'linear-gradient(45deg, #fff8cc, #ffc05c, #ffd8d8, #fff1cc, #c6fff6, #d2ffcc)',
+    gradientText: 'linear-gradient(45deg, #fff8cc, #ffc05c, #ffd8d8, #fff1cc, #c6fff6, #d2ffcc)',
     gradientLink: 'linear-gradient(90deg, #ffffff, #ffb6e9, #e3c1ff, #ffffff)',
-    borderGlow:
-      'linear-gradient(90deg, #ffb742 0%, #f2247e 33%, #ba34eb 66%, #2cdec3 100%)',
+    borderGlow: 'linear-gradient(90deg, #ffb742 0%, #f2247e 33%, #ba34eb 66%, #2cdec3 100%)',
   },
 });
 

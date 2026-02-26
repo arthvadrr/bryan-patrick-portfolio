@@ -2,7 +2,6 @@
 >
 > _Yennefer of Vengerberg_ (_The Witcher 3_)
 
-
 ## Misc
 
 ```ts

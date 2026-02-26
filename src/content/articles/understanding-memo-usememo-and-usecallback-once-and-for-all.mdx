@@ -6,7 +6,12 @@ export const title = 'Understanding memo, useMemo, and useCallback Once and For 
 const rows = useMemo(() => sortRows(rawRows), [rawRows]);
 const onSelect = useCallback((id: string) => setSelected(id), []);
 
-return <Table rows={rows} onSelect={onSelect} />;
+return (
+  <Table
+    rows={rows}
+    onSelect={onSelect}
+  />
+);
 ```
 
 If the calculation is cheap or the child is cheap, skip memoization first and measure later.

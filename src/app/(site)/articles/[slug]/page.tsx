@@ -1,6 +1,6 @@
-import { ARTICLES, getArticlePageBySlug } from "../index";
-import { notFound } from "next/navigation";
-import ArticleClient from "./ArticleClient";
+import { ARTICLES, getArticlePageBySlug } from '../index';
+import { notFound } from 'next/navigation';
+import ArticleClient from './ArticleClient';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -21,7 +21,10 @@ export default async function Page({ params }: PageProps) {
   const { article, title, Content } = articlePage;
 
   return (
-    <ArticleClient article={article} title={title}>
+    <ArticleClient
+      article={article}
+      title={title}
+    >
       <Content />
     </ArticleClient>
   );
