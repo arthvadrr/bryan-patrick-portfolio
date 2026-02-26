@@ -74,10 +74,8 @@ const getImageEffectStyles: SxProps<Theme> = (theme: Theme) => ({
   },
 
   '&:hover::before': {
-    background:
-      'conic-gradient(from var(--gradient-angle), #ffb742, #f2247e, #ba34eb, #2cdec3, #ffb742)',
-    WebkitMask:
-      'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
+    background: 'conic-gradient(from var(--gradient-angle), #ffb742, #f2247e, #ba34eb, #2cdec3, #ffb742)',
+    WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
     maskComposite: 'subtract',
   },
 
@@ -139,13 +137,16 @@ export default function Home() {
             />
           </Box>
         }
-        <Stack spacing={2} sx={{ py: 6, zIndex: 2 }}>
+        <Stack
+          spacing={2}
+          sx={{ py: 6, zIndex: 2 }}
+        >
           <Typography variant='h1'>
             Hello! <br /> My name is Bryan.
           </Typography>
           <Typography>
-            This is my personal site. Here there are code snippets, a collection
-            of articles, bookmarks, and widgets for things I use all the time.
+            This is my personal site. Here there are code snippets, a collection of articles, bookmarks, and widgets for
+            things I use all the time.
           </Typography>
         </Stack>
       </Stack>

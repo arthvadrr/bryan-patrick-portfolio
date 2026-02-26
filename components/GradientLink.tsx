@@ -16,12 +16,7 @@ interface GradientLinkProps {
 /*=====================================================
  * How could a site ever be cool without gradient links?
  *======================================================*/
-export default function GradientLink({
-  children,
-  gradient,
-  href,
-  sx = {},
-}: GradientLinkProps) {
+export default function GradientLink({ children, gradient, href, sx = {} }: GradientLinkProps) {
   const retroTheme = useTheme();
   const $Box = useRef<HTMLSpanElement>(null);
 

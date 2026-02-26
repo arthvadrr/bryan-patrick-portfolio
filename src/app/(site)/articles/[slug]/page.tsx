@@ -21,7 +21,10 @@ export default async function Page({ params }: PageProps) {
   const { article, title, Content } = articlePage;
 
   return (
-    <ArticleClient article={article} title={title}>
+    <ArticleClient
+      article={article}
+      title={title}
+    >
       <Content />
     </ArticleClient>
   );

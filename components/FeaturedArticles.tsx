@@ -10,7 +10,11 @@ export default function FeaturedArticles() {
         position: 'relative',
       }}
     >
-      <Typography component='h2' variant='h3' sx={{ my: 1 }}>
+      <Typography
+        component='h2'
+        variant='h3'
+        sx={{ my: 1 }}
+      >
         Featured Articles
       </Typography>
       <List>

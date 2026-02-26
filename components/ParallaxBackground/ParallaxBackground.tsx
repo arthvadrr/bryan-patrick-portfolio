@@ -14,7 +14,10 @@ const parentSX: SxProps<Theme> = () => ({
 
 export default function ParallaxBackground() {
   return (
-    <Box aria-hidden='true' sx={parentSX}>
+    <Box
+      aria-hidden='true'
+      sx={parentSX}
+    >
       future parallax bg
     </Box>
   );

@@ -14,10 +14,7 @@ type ScaffoldProps = {
   padding?: number;
 };
 
-export default function MainTemplate({
-  children,
-  minHeight = '100vh',
-}: ScaffoldProps) {
+export default function MainTemplate({ children, minHeight = '100vh' }: ScaffoldProps) {
   const retroTheme = useTheme();
 
   return (
@@ -40,7 +37,12 @@ export default function MainTemplate({
           background: retroTheme.gradients.superDark,
         }}
       >
-        <RetroBorder position='top' size='2px' length='100%' offset={'0%'} />
+        <RetroBorder
+          position='top'
+          size='2px'
+          length='100%'
+          offset={'0%'}
+        />
         <Box
           id='main-content'
           sx={{

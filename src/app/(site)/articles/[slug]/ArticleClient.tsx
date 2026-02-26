@@ -18,23 +18,35 @@ function formatDate(value: string) {
   });
 }
 
-export default function ArticleClient({
-  article,
-  title,
-  children,
-}: ArticleClientProps) {
+export default function ArticleClient({ article, title, children }: ArticleClientProps) {
   return (
     <Stack spacing={3}>
-      <Typography component='h1' variant='h1'>
+      <Typography
+        component='h1'
+        variant='h1'
+      >
         {title}
       </Typography>
-      <Stack direction='row' spacing={1} alignItems='center'>
-        <Chip label={article.tag} size='small' />
-        <Typography variant='body2' color='text.secondary'>
+      <Stack
+        direction='row'
+        spacing={1}
+        alignItems='center'
+      >
+        <Chip
+          label={article.tag}
+          size='small'
+        />
+        <Typography
+          variant='body2'
+          color='text.secondary'
+        >
           {formatDate(article.date)}
         </Typography>
       </Stack>
-      <Stack className='article-body' spacing={2}>
+      <Stack
+        className='article-body'
+        spacing={2}
+      >
         {children}
       </Stack>
     </Stack>

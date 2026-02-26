@@ -19,10 +19,7 @@ type ScaffoldProps = {
  *
  * - Violet Crawley, Dowager Countess of Grantham (Downton Abbey)
  *===============================*/
-export default function ArticlesTemplate({
-  children,
-  minHeight = '100vh',
-}: ScaffoldProps) {
+export default function ArticlesTemplate({ children, minHeight = '100vh' }: ScaffoldProps) {
   const retroTheme = useTheme();
 
   return (
@@ -39,7 +36,12 @@ export default function ArticlesTemplate({
           background: retroTheme.gradients.superDark,
         }}
       >
-        <RetroBorder position='top' size='2px' length='100%' offset={'0%'} />
+        <RetroBorder
+          position='top'
+          size='2px'
+          length='100%'
+          offset={'0%'}
+        />
         <Box
           id='main-content'
           sx={{

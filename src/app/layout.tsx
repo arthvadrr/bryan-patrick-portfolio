@@ -34,9 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body
-        className={`${blackHanSans.variable} ${spaceGrotesk.variable} ${lexend.variable}`}
-      >
+      <body className={`${blackHanSans.variable} ${spaceGrotesk.variable} ${lexend.variable}`}>
         <Providers>{children}</Providers>
       </body>
     </html>

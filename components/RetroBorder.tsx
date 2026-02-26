@@ -33,10 +33,8 @@ interface RetroBorderProps {
 /*==============================================================================
  * These are our building blocks to create our border effect and our glow effect
  *==============================================================================*/
-const HORIZONTAL_GRADIENT =
-  'linear-gradient(90deg, #ffb742 0%, #f2247e 33%, #ba34eb 66%, #2cdec3 100%)';
-const VERTICAL_GRADIENT =
-  'linear-gradient(180deg, #ffb742 0%, #f2247e 33%, #ba34eb 66%, #2cdec3 100%)';
+const HORIZONTAL_GRADIENT = 'linear-gradient(90deg, #ffb742 0%, #f2247e 33%, #ba34eb 66%, #2cdec3 100%)';
+const VERTICAL_GRADIENT = 'linear-gradient(180deg, #ffb742 0%, #f2247e 33%, #ba34eb 66%, #2cdec3 100%)';
 const GLOW_SPREAD_RADIUS = '10px';
 const GLOW_BLUR_RADIUS = '60px';
 const MAX_GLOW_OPACITY = 0.5;
@@ -73,11 +71,7 @@ function toUnit(value: string | number) {
  *
  * - Penny, Stardew Valley, Jellyfish dance festival
  *====================================================*/
-function getGlowSegmentPlacement(
-  orientation: BorderOrientation,
-  index: number,
-  sizeValue: string,
-): CSSProperties {
+function getGlowSegmentPlacement(orientation: BorderOrientation, index: number, sizeValue: string): CSSProperties {
   const segmentPercent = 100 / GLOW_COLORS.length;
   const segmentStart = `${index * segmentPercent}%`;
   const segmentSize = `${segmentPercent}%`;
@@ -99,11 +93,7 @@ function getGlowSegmentPlacement(
   };
 }
 
-function getBorderGradient(
-  orientation: BorderOrientation,
-  borderColor: string,
-  showSideBlends: boolean,
-): string {
+function getBorderGradient(orientation: BorderOrientation, borderColor: string, showSideBlends: boolean): string {
   if (!showSideBlends) {
     if (orientation === 'vertical') {
       return VERTICAL_GRADIENT;
