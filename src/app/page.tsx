@@ -110,7 +110,7 @@ const getImageEffectStyles: SxProps<Theme> = (theme: Theme) => ({
  * that’s not your home. Your home is sometimes a place you
  * travel long and far to find."
  *
- * - Geralt of Rivia
+ * - Geralt of Rivia (Witcher 3)
  *============================================================*/
 export default function Home() {
   return (

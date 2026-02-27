@@ -7,6 +7,8 @@ type RateLimit = {
 
 const KEY = process.env.OPEN_WEATHER_API_KEY;
 const URL = process.env.OPEN_WEATHER_API_URL;
+const FALLBACK_LAT = '40.7128';
+const FALLBACK_LON = '-74.0060';
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 30;
 const recordOfHitsByIP: Record<string, RateLimit> = {};
@@ -17,6 +19,25 @@ let timeOfLastRateLimit = 0;
  *===============================*/
 function getClientIp(request: NextRequest) {
   return request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || request.headers.get('x-real-ip') || '';
+}
+
+function isLocalOrPrivateIp(ip: string) {
+  const normalizedIp = ip.replace(/^::ffff:/, '');
+
+  if (normalizedIp === '127.0.0.1' || normalizedIp === '::1') {
+    return true;
+  }
+
+  if (normalizedIp.startsWith('10.') || normalizedIp.startsWith('192.168.')) {
+    return true;
+  }
+
+  if (normalizedIp.startsWith('172.')) {
+    const secondOctet = Number(normalizedIp.split('.')[1]);
+    return secondOctet >= 16 && secondOctet <= 31;
+  }
+
+  return false;
 }
 
 /*===========================================
@@ -67,6 +88,9 @@ function incrementRateLimit(ip: string) {
     return { allowed: true, retryAfterSeconds: 0 };
   }
 
+  /*===========================================
+   * Too many requests, respond with retry time
+   *===========================================*/
   if (recordOfHitsFromSingleIP.requestCount >= RATE_LIMIT_MAX_REQUESTS) {
     const retryAfterSeconds = Math.ceil((RATE_LIMIT_WINDOW_MS - elapsed) / 1000);
 
@@ -83,7 +107,8 @@ function incrementRateLimit(ip: string) {
  * There's an open API to get location, we use it
  *===============================================*/
 async function fetchIpGeolocation(clientIP: string) {
-  return fetch(`https://ipapi.co/${clientIP}/json/`, { cache: 'no-store' });
+  const encodedIp = encodeURIComponent(clientIP);
+  return fetch(`https://ipapi.co/${encodedIp}/json/`, { cache: 'no-store' });
 }
 
 /*===================================================
@@ -134,16 +159,20 @@ export async function GET(request: NextRequest) {
      * OpenWeatherMap requires latitude and longitude for their API
      * This is where we get that from the cliet's IP
      *=============================================================*/
-    const geoRes = await fetchIpGeolocation(clientIP);
+    let latitude: string | number = FALLBACK_LAT;
+    let longitude: string | number = FALLBACK_LON;
 
-    if (!geoRes.ok) {
-      return NextResponse.json({ error: 'IP geolocation failed' }, { status: 502 });
-    }
+    if (!isLocalOrPrivateIp(clientIP)) {
+      const geoRes = await fetchIpGeolocation(clientIP);
 
-    const { latitude, longitude } = await geoRes.json();
+      if (geoRes.ok) {
+        const { latitude: geolocationLatitude, longitude: geolocationLongitude } = await geoRes.json();
 
-    if (!latitude || !longitude) {
-      return NextResponse.json({ error: 'No lat/lon for IP' }, { status: 400 });
+        if (geolocationLatitude && geolocationLongitude) {
+          latitude = geolocationLatitude;
+          longitude = geolocationLongitude;
+        }
+      }
     }
 
     /*=========================================================
@@ -169,7 +198,7 @@ export async function GET(request: NextRequest) {
        * and send the error with the response. This should
        * only ever be done while testing locally.
        *==================================================*/
-      //debuggingError: error,
+      debuggingError: error,
     };
     console.error(error);
     return NextResponse.json(errorResponse, { status: 500 });
