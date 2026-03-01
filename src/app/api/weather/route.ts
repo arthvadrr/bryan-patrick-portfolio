@@ -11,6 +11,7 @@ const FALLBACK_LAT = '40.7128';
 const FALLBACK_LON = '-74.0060';
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 30;
+const REVALIDATE_WEATHER_SECONDS = 600;
 const recordOfHitsByIP: Record<string, RateLimit> = {};
 let timeOfLastRateLimit = 0;
 
@@ -115,8 +116,13 @@ async function fetchIpGeolocation(clientIP: string) {
  * Use our env keys to get our OpenWeatherMaps result
  *===================================================*/
 async function fetchOpenWeather(lat: string | number, lon: string | number) {
+  const locationTag = `weatherwidget:${lat},${lon}`;
+
   return fetch(`${URL}?lat=${lat}&lon=${lon}&exclude=minutely,alerts&appid=${KEY}&units=imperial`, {
-    cache: 'no-store',
+    next: {
+      revalidate: REVALIDATE_WEATHER_SECONDS,
+      tags: [locationTag],
+    },
   });
 }
 
