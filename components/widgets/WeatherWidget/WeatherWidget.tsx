@@ -16,6 +16,7 @@ interface FetchWeatherProps {
  *===============================================*/
 async function fetchWeather({ setData, setError, signal }: FetchWeatherProps) {
   try {
+    setError('');
     const res = await fetch('/api/weather', { cache: 'no-store', signal });
     const body = await res.json();
 
@@ -23,8 +24,12 @@ async function fetchWeather({ setData, setError, signal }: FetchWeatherProps) {
       throw new Error(body?.error ?? 'Weather request failed');
     }
 
+    setError('');
     setData(body);
   } catch (err) {
+    if (signal.aborted || (err instanceof DOMException && err.name === 'AbortError')) {
+      return;
+    }
     setError(err instanceof Error ? err.message : 'Failed to load weather');
   }
 }
@@ -70,7 +75,6 @@ export default function WeatherWidget() {
           display: 'flex',
           position: 'relative',
           flexDirection: 'column',
-          border: '1px solid #333',
           p: 4,
 
           '&:hover #weather-grid:before': {
@@ -92,6 +96,7 @@ export default function WeatherWidget() {
             borderBottomRightRadius: 'unset',
             borderBottomLeftRadius: 'unset',
             overflow: 'hidden',
+            boxSizing: 'content-box',
             width: '366px',
             height: '240px',
 

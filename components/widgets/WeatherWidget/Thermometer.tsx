@@ -14,28 +14,24 @@ interface TemperatureGradientProps {
 }
 
 const TEMPERATURE_GRADIENTS: TemperatureGradientProps[] = [
-  { range: [-40, 0], fill: '#2B2D42', background: '#E9ECEF' },
-  { range: [1, 32], fill: '#1D4ED8', background: '#E0F2FE' },
+  { range: [-Infinity, 0], fill: '#6753a3', background: '#E9ECEF' },
+  { range: [1, 32], fill: '#5e65fb', background: '#E0F2FE' },
   { range: [33, 50], fill: '#0EA5E9', background: '#E0F7FF' },
-  { range: [51, 60], fill: '#10B981', background: '#E7FFF4' },
-  { range: [61, 72], fill: '#84CC16', background: '#F3FFE0' },
-  { range: [73, 85], fill: '#F59E0B', background: '#FFF3D6' },
+  { range: [51, 60], fill: '#10b99a', background: '#E7FFF4' },
+  { range: [61, 72], fill: '#92b747', background: '#F3FFE0' },
+  { range: [73, 85], fill: '#f5c60b', background: '#FFF3D6' },
   { range: [86, 100], fill: '#F97316', background: '#FFE4D5' },
-  { range: [101, 120], fill: '#DC2626', background: '#FFE1E1' },
+  { range: [101, Infinity], fill: '#DC2626', background: '#FFE1E1' },
 ];
 
 /*========================================================
  * We use our range enums to figure out which color to use
  *========================================================*/
 function getTemperatureGradient(temperature: number): TemperatureGradientProps | null {
-  if (temperature > 120 || temperature < -40) {
-    return null;
-  }
-
   for (let i = 0; i < TEMPERATURE_GRADIENTS.length; i++) {
     const [low, high] = TEMPERATURE_GRADIENTS[i].range;
 
-    if (temperature > low && temperature < high) {
+    if (temperature >= low && temperature <= high) {
       return TEMPERATURE_GRADIENTS[i];
     }
   }
@@ -51,6 +47,7 @@ export default function Thermometer({ temperature }: ThermometerProps) {
       sx={{
         display: 'grid',
         justifyItems: 'center',
+        gap: 0.5,
 
         '& meter': {
           background: temperatureGradient?.background,
@@ -65,12 +62,12 @@ export default function Thermometer({ temperature }: ThermometerProps) {
       }}
     >
       <label htmlFor='temperature'>Temperature</label>
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <Snowflake
           aria-hidden
           width={25}
           height={25}
-          style={{ color: temperatureGradient?.fill }}
+          style={{ color: temperature < 70 ? temperatureGradient?.fill : temperatureGradient?.background }}
         />
         <meter
           id='temperature'
@@ -84,7 +81,7 @@ export default function Thermometer({ temperature }: ThermometerProps) {
           aria-hidden
           width={20}
           height={20}
-          style={{ color: temperatureGradient?.background }}
+          style={{ color: temperature >= 70 ? temperatureGradient?.fill : temperatureGradient?.background }}
         />
       </Box>
       <Box
