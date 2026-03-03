@@ -3,6 +3,7 @@ import { createTheme } from '@mui/material/styles';
 const COLORS = {
   bg: '#000000',
   content: '#1b1824',
+  card: '#27242F',
   aqua: '#46cfc8',
   orange: '#f28a3a',
   textLight: '#fff8cc',
@@ -96,6 +97,7 @@ const retroTheme = createTheme({
     background: {
       default: COLORS.bg,
       paper: COLORS.content,
+      card: COLORS.card,
     },
     text: {
       primary: COLORS.textLight,

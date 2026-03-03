@@ -64,104 +64,113 @@ export default function WeatherWidget() {
   }
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        position: 'relative',
-        flexDirection: 'column',
-        border: '1px solid #333',
-        p: 4,
-      }}
-    >
+    <>
       <Box
         sx={{
+          display: 'flex',
           position: 'relative',
-          display: 'grid',
-          alignItems: 'flex-end',
-          justifyContent: 'center',
-          backgroundImage: `url(/images/weather-widget/birds/${data.weather[0].icon}.webp)`,
-          border: `2px solid ${retroTheme.palette.divider}`,
-          borderBottom: 'unset',
-          borderRadius: '0.75rem',
-          borderBottomRightRadius: 'unset',
-          borderBottomLeftRadius: 'unset',
-          overflow: 'hidden',
-          width: '366px',
-          height: '240px',
+          flexDirection: 'column',
+          border: '1px solid #333',
+          p: 4,
 
-          '&:before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            height: '100%',
-            width: '100%',
-            backgroundImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))',
+          '&:hover #weather-grid:before': {
+            backdropFilter: 'sepia(0)',
           },
         }}
       >
-        <Typography
-          variant='h3'
+        <Box
+          id='weather-grid'
           sx={{
-            py: 2,
-            zIndex: 0,
+            position: 'relative',
+            display: 'grid',
+            alignItems: 'flex-end',
+            justifyContent: 'center',
+            backgroundImage: `url(/images/weather-widget/birds/${data.weather[0].icon}.webp)`,
+            border: `1px solid ${retroTheme.palette.divider}`,
+            borderBottom: 'unset',
+            borderRadius: '0.75rem',
+            borderBottomRightRadius: 'unset',
+            borderBottomLeftRadius: 'unset',
+            overflow: 'hidden',
+            width: '366px',
+            height: '240px',
+
+            '&:before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              height: '100%',
+              width: '100%',
+              backdropFilter: 'sepia(0.7)',
+              backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, ${retroTheme.palette.background.card})`,
+              transition: 'all 200ms',
+            },
           }}
         >
-          Your Current Weather
-        </Typography>
-      </Box>
-      <List
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-          border: `2px solid ${retroTheme.palette.divider}`,
-          borderRadius: '1rem',
-          borderTopLeftRadius: 'unset',
-          borderTopRightRadius: 'unset',
-          borderTop: 'unset',
-          backgroundColor: '#000',
-          m: 0,
-          p: 0,
-
-          '& > li:nth-child(odd) .MuiBox-root': {
-            textAlign: 'right',
-            width: '100%',
-          },
-        }}
-      >
-        <ListItem>
-          <Box
+          <Typography
+            variant='h3'
             sx={{
-              position: 'relative',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '100%',
+              py: 2,
+              zIndex: 0,
             }}
           >
-            <Image
-              src={`/images/weather-widget/icons/${data.weather[0].icon}.png`}
-              alt={`Current conditions are ${data.weather[0].main.toLowerCase()}.`}
-              width='100'
-              height='100'
-            />
-            {data.weather[0].main}
-          </Box>
-        </ListItem>
-        <ListItem>
-          <Thermometer temperature={data.main.temp} />
-        </ListItem>
-        <ListItem>
-          <Box>Wind Speed: {data.wind.speed}</Box>
-        </ListItem>
-        <ListItem>
-          <Box>Wind Dir(deg): {data.wind.deg}</Box>
-        </ListItem>
-        <ListItem>
-          <Box>Clouds: {data.clouds.all}</Box>
-        </ListItem>
-      </List>
-    </Box>
+            Your Current Weather
+          </Typography>
+        </Box>
+        <List
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+            border: `1px solid ${retroTheme.palette.divider}`,
+            borderRadius: '1rem',
+            borderTopLeftRadius: 'unset',
+            borderTopRightRadius: 'unset',
+            borderTop: 'unset',
+            backgroundColor: retroTheme.palette.background.card,
+            m: 0,
+            p: 0,
+
+            '& > li:nth-child(odd) .MuiBox-root': {
+              textAlign: 'right',
+              width: '100%',
+            },
+          }}
+        >
+          <ListItem>
+            <Box
+              sx={{
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '100%',
+              }}
+            >
+              <Image
+                src={`/images/weather-widget/icons/${data.weather[0].icon}.png`}
+                alt={`Current conditions are ${data.weather[0].main.toLowerCase()}.`}
+                width='100'
+                height='100'
+              />
+              {data.weather[0].main}
+            </Box>
+          </ListItem>
+          <ListItem>
+            <Thermometer temperature={data.main.temp} />
+          </ListItem>
+          <ListItem>
+            <Box>Wind Speed: {data.wind.speed}</Box>
+          </ListItem>
+          <ListItem>
+            <Box>Wind Dir(deg): {data.wind.deg}</Box>
+          </ListItem>
+          <ListItem>
+            <Box>Clouds: {data.clouds.all}</Box>
+          </ListItem>
+        </List>
+      </Box>
+    </>
   );
 }
 

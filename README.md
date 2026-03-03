@@ -2,6 +2,8 @@
 >
 > _Yennefer of Vengerberg_ (_The Witcher 3_)
 
+- 0% of this project was written with AI 💅
+
 ## Misc
 
 ```ts
@@ -64,3 +66,7 @@
 [11n.jpg Birds in Storm - Eugene Golovesov](https://www.pexels.com/photo/woman-looking-at-a-flock-of-birds-flying-in-a-stormy-sky-5426418/)
 [50n Leon Beckert](https://unsplash.com/photos/a-close-up-of-a-bird-with-a-blurry-background-fqSQfUZE65c)
 All other unclaimed images are courtesy of Pixabay, Unsplash, and Pexels.
+
+## TODO
+
+- Figure out what the fuck is up with openweathermap's shitty icons

@@ -24,6 +24,9 @@ const TEMPERATURE_GRADIENTS: TemperatureGradientProps[] = [
   { range: [101, 120], fill: '#DC2626', background: '#FFE1E1' },
 ];
 
+/*========================================================
+ * We use our range enums to figure out which color to use
+ *========================================================*/
 function getTemperatureGradient(temperature: number): TemperatureGradientProps | null {
   if (temperature > 120 || temperature < -40) {
     return null;

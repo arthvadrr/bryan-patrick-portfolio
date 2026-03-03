@@ -54,4 +54,8 @@ declare module '@mui/material/styles' {
   interface TypeText {
     medium: string;
   }
+
+  interface TypeBackground {
+    card: string;
+  }
 }
