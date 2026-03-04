@@ -30,7 +30,7 @@ const retroTheme = createTheme({
       fontSize: 38,
     },
     h2: {
-      fontFamily: FONTS.body,
+      fontFamily: FONTS.subheading,
       fontWeight: 700,
       fontSize: 24,
     },
@@ -40,13 +40,15 @@ const retroTheme = createTheme({
       fontSize: 20,
     },
     h4: {
-      fontFamily: FONTS.subheading,
+      fontFamily: FONTS.body,
+      fontSize: 16,
+      fontWeight: 700,
     },
     h5: {
-      fontFamily: FONTS.subheading,
+      fontFamily: FONTS.body,
     },
     h6: {
-      fontFamily: FONTS.subheading,
+      fontFamily: FONTS.body,
     },
     bigheading: {
       fontSize: 64,
@@ -59,27 +61,6 @@ const retroTheme = createTheme({
       styleOverrides: {
         body: {
           fontFamily: FONTS.body,
-        },
-        h1: {
-          fontFamily: FONTS.heading,
-          fontWeight: 400,
-        },
-        h2: {
-          fontFamily: FONTS.heading,
-          fontWeight: 400,
-        },
-        h3: {
-          fontFamily: FONTS.heading,
-          fontWeight: 400,
-        },
-        h4: {
-          fontFamily: FONTS.subheading,
-        },
-        h5: {
-          fontFamily: FONTS.subheading,
-        },
-        h6: {
-          fontFamily: FONTS.subheading,
         },
       },
     },

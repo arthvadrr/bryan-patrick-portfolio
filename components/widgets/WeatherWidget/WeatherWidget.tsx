@@ -142,7 +142,8 @@ export default function WeatherWidget() {
             },
           }}
         >
-          <ListItem>
+          <ListItem sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Typography variant='h4'>Conditions</Typography>
             <Box
               sx={{
                 position: 'relative',
