@@ -1,9 +1,8 @@
 import Providers from './providers';
-import { Black_Han_Sans, Space_Grotesk, Lexend } from 'next/font/google';
+import { Black_Han_Sans, Space_Grotesk, Lexend, IBM_Plex_Mono } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
 
-// TODO Trim down font weights that aren't being used in the site
 const blackHanSans = Black_Han_Sans({
   variable: '--font-heading',
   subsets: ['latin'],
@@ -22,11 +21,22 @@ const lexend = Lexend({
   weight: ['300', '400', '500', '600', '700'],
 });
 
+const IBMPlexMono = IBM_Plex_Mono({
+  variable: '--font-mono',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+});
+
 export const metadata: Metadata = {
   title: 'Bryan Patrick',
   description: 'About me, Bryan Patrick, a dev',
 };
 
+/*========================
+ * "Off we go again."
+ *
+ * Vlad, Waiting for Godot
+ *========================*/
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${blackHanSans.variable} ${spaceGrotesk.variable} ${lexend.variable}`}>
+      <body className={`${blackHanSans.variable} ${spaceGrotesk.variable} ${lexend.variable} ${IBMPlexMono.variable}`}>
         <Providers>{children}</Providers>
       </body>
     </html>

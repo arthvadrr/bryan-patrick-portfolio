@@ -8,6 +8,7 @@ declare module '@mui/material/styles' {
    *====================================================*/
   interface TypographyVariants {
     bigheading: CSSProperties;
+    mono: CSSProperties;
     gradients?: CSSProperties;
   }
 
@@ -25,6 +26,7 @@ declare module '@mui/material/styles' {
    *============================================================================*/
   interface TypographyVariantsOptions {
     bigheading?: CSSProperties;
+    mono?: CSSProperties;
     gradients?: string;
   }
 
@@ -43,6 +45,7 @@ declare module '@mui/material/Typography' {
    *====================================*/
   interface TypographyPropsVariantOverrides {
     bigheading: true;
+    mono: true;
     gradients: true;
   }
 }
@@ -53,5 +56,9 @@ declare module '@mui/material/Typography' {
 declare module '@mui/material/styles' {
   interface TypeText {
     medium: string;
+  }
+
+  interface TypeBackground {
+    card: string;
   }
 }

@@ -141,7 +141,7 @@ export default memo(function RetroBorder({
   size = '1px',
   length = '80%',
   offset = '20%',
-  glowIntensity = 0,
+  glowIntensity = 1,
   showSideBlends = false,
 }: RetroBorderProps) {
   const theme = useTheme();

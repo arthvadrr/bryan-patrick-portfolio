@@ -3,6 +3,7 @@ import { createTheme } from '@mui/material/styles';
 const COLORS = {
   bg: '#000000',
   content: '#1b1824',
+  card: '#27242F',
   aqua: '#46cfc8',
   orange: '#f28a3a',
   textLight: '#fff8cc',
@@ -14,6 +15,7 @@ const FONTS = {
   body: 'var(--font-body), Lexend, sans-serif',
   subheading: 'var(--font-subheading), sans-serif',
   heading: 'var(--font-heading), "Black Han Sans", sans-serif',
+  mono: 'var(--font-mono), "IBM Plex Mono", monospace',
 };
 
 /*======================================
@@ -29,7 +31,7 @@ const retroTheme = createTheme({
       fontSize: 38,
     },
     h2: {
-      fontFamily: FONTS.body,
+      fontFamily: FONTS.subheading,
       fontWeight: 700,
       fontSize: 24,
     },
@@ -39,17 +41,23 @@ const retroTheme = createTheme({
       fontSize: 20,
     },
     h4: {
-      fontFamily: FONTS.subheading,
+      fontFamily: FONTS.body,
+      fontSize: 16,
+      fontWeight: 700,
     },
     h5: {
-      fontFamily: FONTS.subheading,
+      fontFamily: FONTS.body,
     },
     h6: {
-      fontFamily: FONTS.subheading,
+      fontFamily: FONTS.body,
     },
     bigheading: {
       fontSize: 64,
       fontFamily: FONTS.heading,
+      fontWeight: 400,
+    },
+    mono: {
+      fontFamily: FONTS.mono,
       fontWeight: 400,
     },
   },
@@ -58,27 +66,6 @@ const retroTheme = createTheme({
       styleOverrides: {
         body: {
           fontFamily: FONTS.body,
-        },
-        h1: {
-          fontFamily: FONTS.heading,
-          fontWeight: 400,
-        },
-        h2: {
-          fontFamily: FONTS.heading,
-          fontWeight: 400,
-        },
-        h3: {
-          fontFamily: FONTS.heading,
-          fontWeight: 400,
-        },
-        h4: {
-          fontFamily: FONTS.subheading,
-        },
-        h5: {
-          fontFamily: FONTS.subheading,
-        },
-        h6: {
-          fontFamily: FONTS.subheading,
         },
       },
     },
@@ -96,6 +83,7 @@ const retroTheme = createTheme({
     background: {
       default: COLORS.bg,
       paper: COLORS.content,
+      card: COLORS.card,
     },
     text: {
       primary: COLORS.textLight,
