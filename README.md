@@ -2,56 +2,6 @@
 >
 > _Yennefer of Vengerberg_ (_The Witcher 3_)
 
-- 0% of this project was written with AI 💅
-
-## Misc
-
-```ts
-   * If you don't know what display: contents does it's simple. Imagine this:
-   *
-   * Grandparent = table
-   * Parent = cardboard box
-   * Child = cat
-   *
-   * <Table>
-   *  <CardboardBox>
-   *    <Cat>
-   *  </CardboardBox>
-   * </Table>
-   *
-   * The cat is in the cardboard box. He likes the box.
-   *
-   *     /\_/\\
-   *    ( o.o )
-   *     > ^ <
-   *   +-------+
-   *   |  BOX  |
-   *   +-------+
-   =================
-   *    TABLE
-   *
-   * display: contents on the box means:
-   *
-   * The box disappears, but the cat stays.
-   * Now the cat "acts" like it is directly on the table.
-   *
-   * The page layout behaves like the box is gone:
-   *
-   * <Table>
-   *   <Cat>
-   * </Table>
-   *
-   * The cat is slightly annoyed. He knocks your glass off the table
-   *
-   *      /\_/\\
-   *  /  ( o.o )    |  |
-   * |    > ^ <.    |__|
-   * |\  |    |===88|__|
-   =================
-   *    TABLE
-   *================================================================*/
-```
-
 ## Image Credits
 
 [09n.jpg Bird in Rain - Karen F](https://www.pexels.com/photo/macro-shot-of-a-downy-woodpecker-6310736/)
@@ -70,3 +20,8 @@ All other unclaimed images are courtesy of Pixabay, Unsplash, and Pexels.
 ## TODO
 
 - Figure out what the fuck is up with openweathermap's shitty icons
+- Create loader component
+
+"I take it the odds are against us and the situation is grim...you know if Spock were here, he'd say that I was an irrational, illogical human being for taking on a mission like that. Sounds like fun."
+
+Captain James T. Kirk, Generations

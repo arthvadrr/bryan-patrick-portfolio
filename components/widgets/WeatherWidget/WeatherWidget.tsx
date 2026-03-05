@@ -4,6 +4,7 @@ import Thermometer from './Thermometer';
 import { Box, List, ListItem, Typography, useTheme } from '@mui/material';
 import type { Dispatch, SetStateAction } from 'react';
 import type { WeatherData } from './WeatherData';
+import Anemometer from './Anemometer';
 
 interface FetchWeatherProps {
   setData: Dispatch<SetStateAction<WeatherData | null>>;
@@ -62,8 +63,9 @@ export default function WeatherWidget() {
   }, []);
 
   if (error) {
-    return <div>{error}</div>;
+    return <div>{`Man...${error}`}</div>;
   }
+
   if (!data) {
     return <div>Loading weather...</div>;
   }
@@ -143,7 +145,6 @@ export default function WeatherWidget() {
           }}
         >
           <ListItem sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant='h4'>Conditions</Typography>
             <Box
               sx={{
                 position: 'relative',
@@ -166,13 +167,10 @@ export default function WeatherWidget() {
             <Thermometer temperature={data.main.temp} />
           </ListItem>
           <ListItem>
-            <Box>Wind Speed: {data.wind.speed}</Box>
-          </ListItem>
-          <ListItem>
-            <Box>Wind Dir(deg): {data.wind.deg}</Box>
-          </ListItem>
-          <ListItem>
-            <Box>Clouds: {data.clouds.all}</Box>
+            <Anemometer
+              speed={data.wind.speed}
+              directionInDeg={data.wind.deg}
+            />
           </ListItem>
         </List>
       </Box>

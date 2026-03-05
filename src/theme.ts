@@ -15,6 +15,7 @@ const FONTS = {
   body: 'var(--font-body), Lexend, sans-serif',
   subheading: 'var(--font-subheading), sans-serif',
   heading: 'var(--font-heading), "Black Han Sans", sans-serif',
+  mono: 'var(--font-mono), "IBM Plex Mono", monospace',
 };
 
 /*======================================
@@ -53,6 +54,10 @@ const retroTheme = createTheme({
     bigheading: {
       fontSize: 64,
       fontFamily: FONTS.heading,
+      fontWeight: 400,
+    },
+    mono: {
+      fontFamily: FONTS.mono,
       fontWeight: 400,
     },
   },
