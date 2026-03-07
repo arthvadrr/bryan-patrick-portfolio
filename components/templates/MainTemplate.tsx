@@ -23,7 +23,7 @@ export default function MainTemplate({ children, minHeight = '100vh' }: Scaffold
        * This is the page structure grid.
        * It tells the content area where to live.
        *
-       * "Like, structurally." - Laura, explaining something
+       * "Like, structurally." - Laura
        *====================================================*/}
       <Box
         component='main'
@@ -75,9 +75,7 @@ export default function MainTemplate({ children, minHeight = '100vh' }: Scaffold
             >
               {children}
             </Stack>
-            <Box sx={{ width: '100%', maxWidth: '432px' }}>
-              <Sidebar />
-            </Box>
+            <Sidebar />
           </Stack>
         </Box>
       </Box>

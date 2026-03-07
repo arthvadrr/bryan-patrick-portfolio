@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
+import { Box, List, ListItem, Typography, useTheme } from '@mui/material';
 import Image from 'next/image';
 import Thermometer from './Thermometer';
-import { Box, List, ListItem, Typography, useTheme } from '@mui/material';
+import Anemometer from './Anemometer';
 import type { Dispatch, SetStateAction } from 'react';
 import type { WeatherData } from './WeatherData';
-import Anemometer from './Anemometer';
 
 interface FetchWeatherProps {
   setData: Dispatch<SetStateAction<WeatherData | null>>;
@@ -77,7 +77,7 @@ export default function WeatherWidget() {
           display: 'flex',
           position: 'relative',
           flexDirection: 'column',
-          p: 4,
+          my: 4,
 
           '&:hover #weather-grid:before': {
             backdropFilter: 'sepia(0)',
@@ -109,7 +109,7 @@ export default function WeatherWidget() {
               left: 0,
               height: '100%',
               width: '100%',
-              backdropFilter: 'sepia(0.7)',
+              backdropFilter: 'sepia(1)',
               backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, ${retroTheme.palette.background.card})`,
               transition: 'all 200ms',
             },

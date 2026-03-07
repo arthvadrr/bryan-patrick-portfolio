@@ -3,7 +3,12 @@ import WeatherWidget from './widgets/WeatherWidget/WeatherWidget';
 
 export default function Sidebar() {
   return (
-    <aside>
+    <Box
+      component='aside'
+      sx={{
+        mr: 2,
+      }}
+    >
       <WeatherWidget />
       <Box
         sx={{
@@ -21,6 +26,6 @@ export default function Sidebar() {
       >
         This is a widget
       </Box>
-    </aside>
+    </Box>
   );
 }
