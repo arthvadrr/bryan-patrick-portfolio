@@ -1,16 +1,21 @@
 'use client';
 
-import Link from 'next/link';
 import { memo } from 'react';
 import { usePathname } from 'next/navigation';
 import { Button, Stack } from '@mui/material';
+import Link from 'next/link';
+import HomeIcon from '@mui/icons-material/Home';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import CodeIcon from '@mui/icons-material/Code';
+import BookmarksIcon from '@mui/icons-material/Bookmarks';
+import PersonIcon from '@mui/icons-material/Person';
 
 const NAV_ITEMS = [
-  { href: '/', label: 'Home' },
-  { href: '/articles', label: 'Articles' },
-  { href: '/snippets', label: 'Code Snippets' },
-  { href: '/bookmarks', label: 'Bookmarks' },
-  { href: '/about', label: 'About' },
+  { href: '/', label: 'Home', icon: <HomeIcon /> },
+  { href: '/articles', label: 'Articles', icon: <LibraryBooksIcon /> },
+  { href: '/snippets', label: 'Code Snippets', icon: <CodeIcon /> },
+  { href: '/bookmarks', label: 'Bookmarks', icon: <BookmarksIcon /> },
+  { href: '/about', label: 'About', icon: <PersonIcon /> },
 ];
 
 /*===================================================
@@ -21,7 +26,7 @@ const NAV_ITEMS = [
 export default memo(function MenuNav() {
   const pathname = usePathname();
 
-  const isActiveRoute = (href: string): boolean => {
+  function isActiveRoute(href: string): boolean {
     if (!pathname) {
       return false;
     }
@@ -31,7 +36,7 @@ export default memo(function MenuNav() {
     }
 
     return pathname === href || pathname.startsWith(`${href}/`);
-  };
+  }
 
   return (
     <Stack
@@ -53,6 +58,8 @@ export default memo(function MenuNav() {
             aria-current={isActive ? 'page' : undefined}
             color={isActive ? 'primary' : 'inherit'}
             sx={{
+              display: 'flex',
+              gap: 1,
               width: '100%',
               cursor: 'pointer',
               borderColor: 'divider',
@@ -64,6 +71,7 @@ export default memo(function MenuNav() {
               textTransform: 'unset',
             }}
           >
+            {item.icon}
             {item.label}
           </Button>
         );

@@ -17,11 +17,10 @@
 [50n Leon Beckert](https://unsplash.com/photos/a-close-up-of-a-bird-with-a-blurry-background-fqSQfUZE65c)
 All other unclaimed images are courtesy of Pixabay, Unsplash, and Pexels.
 
-## TODO
-
-- Figure out what the fuck is up with openweathermap's shitty icons
-- Create loader component
-
 "I take it the odds are against us and the situation is grim...you know if Spock were here, he'd say that I was an irrational, illogical human being for taking on a mission like that. Sounds like fun."
 
 Captain James T. Kirk, Generations
+
+## Icons
+
+[Search MUI Icons](https://mui.com/material-ui/material-icons/#search-material-icons)

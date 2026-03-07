@@ -126,17 +126,15 @@ export default function Home() {
           gap: 2,
         }}
       >
-        {
-          <Box sx={getImageEffectStyles}>
-            <Image
-              src='/images/bryan-shades_200x200.png'
-              alt='A photo of Bryan'
-              width='200'
-              height='200'
-              loading='eager'
-            />
-          </Box>
-        }
+        <Box sx={getImageEffectStyles}>
+          <Image
+            src='/images/bryan-shades_200x200.png'
+            alt='A photo of Bryan'
+            width='200'
+            height='200'
+            loading='eager'
+          />
+        </Box>
         <Stack
           spacing={2}
           sx={{ py: 6, zIndex: 2 }}

@@ -27,25 +27,26 @@
     "@emotion/styled": "^11.14.1",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
-    "@mui/material": "^7.3.8",
-    "@mui/material-nextjs": "^7.3.8",
+    "@mui/icons-material": "^7.3.9",
+    "@mui/material": "^7.3.9",
+    "@mui/material-nextjs": "^7.3.9",
     "@next/mdx": "^16.1.6",
     "@types/mdx": "^2.0.13",
     "next": "16.1.6",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "rehype-pretty-code": "^0.14.1",
-    "shiki": "^3.23.0"
+    "rehype-pretty-code": "^0.14.3",
+    "shiki": "^4.0.1"
   },
   "devDependencies": {
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
-    "eslint": "^9.39.1",
+    "eslint": "^10.0.3",
     "eslint-config-next": "16.1.6",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
+    "lint-staged": "^16.3.2",
     "prettier": "3.8.1",
     "typescript": "^5"
   }
