@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, List, ListItem, Typography, useTheme } from '@mui/material';
+import { Box, CircularProgress, List, ListItem, Typography, useTheme } from '@mui/material';
 import Image from 'next/image';
 import Thermometer from './Thermometer';
 import Anemometer from './Anemometer';
@@ -67,7 +67,19 @@ export default function WeatherWidget() {
   }
 
   if (!data) {
-    return <div>Loading weather...</div>;
+    return (
+      <Box
+        sx={{
+          width: '366px',
+          height: '240px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
 
   return (
