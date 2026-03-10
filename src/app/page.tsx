@@ -9,6 +9,7 @@ import FeaturedBookmarks from '../../components/FeaturedBookmarks';
 import FeaturedSnippets from '../../components/FeaturedSnippets';
 import { Box } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material/styles';
+import SocialLinks from 'components/SocialLinks';
 
 const getImageEffectStyles: SxProps<Theme> = (theme: Theme) => ({
   position: 'relative',
@@ -146,6 +147,7 @@ export default function Home() {
             This is my personal site. Here there are code snippets, a collection of articles, bookmarks, and widgets for
             things I use all the time.
           </Typography>
+          <SocialLinks />
         </Stack>
       </Stack>
       <FeaturedArticles />

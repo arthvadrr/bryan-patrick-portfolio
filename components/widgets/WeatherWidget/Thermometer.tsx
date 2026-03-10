@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Box, Divider } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import { farenheightToCelcius } from './WeatherWidget';
 import { Fire, Snowflake } from '../../SVG';
 
@@ -44,6 +44,8 @@ export default function Thermometer({ temperature }: ThermometerProps) {
 
   return (
     <Box
+      component='section'
+      aria-labelledby='thermometer'
       sx={{
         display: 'grid',
         justifyItems: 'center',
@@ -61,7 +63,13 @@ export default function Thermometer({ temperature }: ThermometerProps) {
         },
       }}
     >
-      <label htmlFor='temperature'>Temperature</label>
+      <Typography
+        id='thermometer'
+        variant='h4'
+        sx={{ textAlign: 'center' }}
+      >
+        Temperature
+      </Typography>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <Snowflake
           aria-hidden
@@ -70,7 +78,7 @@ export default function Thermometer({ temperature }: ThermometerProps) {
           style={{ color: temperature < 70 ? temperatureGradient?.fill : temperatureGradient?.background }}
         />
         <meter
-          id='temperature'
+          aria-labelledby='thermometer'
           min='-40'
           max='120'
           low={-60}

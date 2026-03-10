@@ -1,5 +1,5 @@
-import retroTheme from '@/theme';
 import { Box, Typography } from '@mui/material';
+import retroTheme from '@/theme';
 
 interface AnemometerProps {
   speed: number;
@@ -63,8 +63,12 @@ export default function Anemometer({ speed, directionInDeg }: AnemometerProps) {
   const direction = getCardinalDirection(directionInDeg);
 
   return (
-    <Box>
+    <Box
+      component='section'
+      aria-labelledby='anemometer'
+    >
       <Typography
+        id='anemometer'
         variant='h4'
         sx={{ textAlign: 'center' }}
       >
@@ -75,9 +79,9 @@ export default function Anemometer({ speed, directionInDeg }: AnemometerProps) {
           display: 'flex',
           backgroundColor: '#333',
           borderRadius: '1rem',
-          pr: 1,
           border: `1px solid ${retroTheme.palette.divider}`,
           alignItems: 'center',
+          pr: 1,
           my: 1,
         }}
       >
