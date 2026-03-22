@@ -13,12 +13,12 @@ type ScaffoldProps = {
   padding?: number;
 };
 
-/*===============================
+/*==============================================================
  * "There's nothing simpler than avoiding people you don't like.
  * Avoiding one's friends, that's the real test."
  *
  * - Violet Crawley, Dowager Countess of Grantham (Downton Abbey)
- *===============================*/
+ *===============================================================*/
 export default function ArticlesTemplate({ children, minHeight = '100vh' }: ScaffoldProps) {
   const retroTheme = useTheme();
 
@@ -46,12 +46,20 @@ export default function ArticlesTemplate({ children, minHeight = '100vh' }: Scaf
           id='main-content'
           sx={{
             position: 'relative',
-            width: '1120px',
+            width: '820px',
             minHeight: '900px',
             backgroundColor: 'background.paper',
             border: 1,
             borderColor: 'divider',
             borderRadius: 2,
+            marginY: 5,
+
+            [retroTheme.breakpoints.down('md')]: {
+              maxWidth: '100vw',
+              borderRadius: 0,
+              marginY: 0,
+              border: 0,
+            },
           }}
         >
           <RetroBorder

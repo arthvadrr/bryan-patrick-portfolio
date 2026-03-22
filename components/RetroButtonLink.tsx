@@ -25,14 +25,11 @@ export default function RetroButtonLink({ href, icon, mediaColor, children, ...p
       {...props}
       sx={(theme) => ({
         display: 'inline-flex',
-        flexDirection: 'column',
         alignItems: 'center',
+        flexDirection: 'column',
         justifyContent: 'center',
         color: theme.palette.text.primary,
         textDecoration: 'none',
-        borderRadius: 1,
-        borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 0,
         border: `3px solid ${theme.palette.background.card}`,
         borderTopWidth: '2px',
         borderBottomWidth: 12,
@@ -41,11 +38,17 @@ export default function RetroButtonLink({ href, icon, mediaColor, children, ...p
         px: 1,
         transition: 'all 160ms ease',
 
-        '&:hover, &:focus-visible': {
-          borderBottomWidth: 4,
-          marginTop: 1,
+        '&:hover, &:focus': {
+          borderBottomWidth: 8,
+          marginTop: 0.5,
           backgroundColor: MEDIA_COLORS[mediaColor].foreground,
           borderColor: MEDIA_COLORS[mediaColor].background,
+          backdropFilter: 'drop-shadow(10px 10px 10px #fafafa)',
+        },
+
+        '&:active': {
+          borderBottomWidth: 4,
+          marginTop: 1,
         },
       })}
     >

@@ -20,7 +20,7 @@ const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     text: 'LinkedIn',
-    href: 'https://linkedin.com/arthvadrr',
+    href: 'https://www.linkedin.com/in/bryanpatrickdev/',
     icon: <LinkedInIcon />,
   },
   {

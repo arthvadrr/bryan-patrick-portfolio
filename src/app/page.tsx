@@ -7,9 +7,9 @@ import Stack from '@mui/material/Stack';
 import FeaturedArticles from '../../components/FeaturedArticles';
 import FeaturedBookmarks from '../../components/FeaturedBookmarks';
 import FeaturedSnippets from '../../components/FeaturedSnippets';
+import SocialLinks from 'components/SocialLinks';
 import { Box } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material/styles';
-import SocialLinks from 'components/SocialLinks';
 
 const getImageEffectStyles: SxProps<Theme> = (theme: Theme) => ({
   position: 'relative',
@@ -138,7 +138,7 @@ export default function Home() {
         </Box>
         <Stack
           spacing={2}
-          sx={{ py: 6, zIndex: 2 }}
+          sx={{ py: 2, zIndex: 2 }}
         >
           <Typography variant='h1'>
             Hello! <br /> My name is Bryan.

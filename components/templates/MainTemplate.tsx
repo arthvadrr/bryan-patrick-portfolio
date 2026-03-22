@@ -5,7 +5,6 @@ import MenuNav from '../MenuNav';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import RetroBorder from '../RetroBorder';
-import Sidebar from '../Sidebar';
 
 type ScaffoldProps = {
   children: React.ReactNode;
@@ -47,7 +46,7 @@ export default function MainTemplate({ children, minHeight = '100vh' }: Scaffold
           id='main-content'
           sx={{
             position: 'relative',
-            width: '1120px',
+            width: '820px',
             minHeight: '900px',
             backgroundColor: 'background.paper',
             border: 1,
@@ -75,7 +74,6 @@ export default function MainTemplate({ children, minHeight = '100vh' }: Scaffold
             >
               {children}
             </Stack>
-            <Sidebar />
           </Stack>
         </Box>
       </Box>

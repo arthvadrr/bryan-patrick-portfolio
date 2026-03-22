@@ -45,6 +45,10 @@ export default memo(function MenuNav() {
       sx={{
         flexWrap: 'no-wrap',
         width: '100%',
+
+        '& a:last-of-type': {
+          borderRight: 0,
+        },
       }}
     >
       {NAV_ITEMS.map((item) => {
