@@ -14,7 +14,7 @@ const NAV_ITEMS = [
 ];
 
 /*===================================================
- * "What is bravery, without a dash of wrecklessness?"
+ * "What is bravery, without a dash of recklessness?"
  *
  * - Hawkeye Gough, Oolacile
  *====================================================*/
